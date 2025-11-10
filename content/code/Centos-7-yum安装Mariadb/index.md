@@ -1,14 +1,16 @@
 ---
-title: Centos 7 yum安装Mariadb
-date: 2018-12-29 15:51:00
-categories: 
-    - CODE
-tags: 
-    - Linux
-    - 数据库
+title: "Centos 7 yum安装Mariadb"
+subtitle: ""
+description: ""
+date: 2018-12-29T15:51:00+08:00
+image: ""
+tags: ["Linux", "数据库"]
+categories: ["CODE"]
+draft: false
 ---
 
 ## 摘要
+
 * Centos7 下安装mariaDB数据库的操作记录。
 * MariaDB数据库是mysql的衍生版。centos发行版在centos6之后就将默认数据库改为了mariadb。[因为MySQL被甲骨文公司收购后存在闭源风险](https://www.zhihu.com/question/41832866)
 
@@ -19,8 +21,10 @@ tags:
 * 这次安装的目的，也是处于小站之后的发展考虑。
 
 ## 安装
+
 * linux服务器，阿里云的ECS
-    ```
+
+    ```bash
     [root@host /]# lsb_release -a
     LSB Version:    :core-4.1-amd64:core-4.1-noarch
     Distributor ID: CentOS
@@ -30,21 +34,28 @@ tags:
     ```
 
 * 使用阿里云linux服务器默认的yum源安装，因此也没什么折腾的，简单几条命令
-    ```
+
+    ```bash
     yum install mariadb mariadb-server -y
     ```
+
 ## 配置
+
 * 启动数据库
-    ```
+
+    ```bash
     systemctl start mariadb
     ```
+
 * 设置数据库开机自启
-    ```
+
+    ```bash
     systemctl enable mariadb
     ```
 
 * Mariadb数据库自带了初始化命令，使用命令之后以找操作进行即可。这里是使用的安全安装命令，安装过程中会提示设置密码等
-    ```
+
+    ```bash
     mysql_secure_installation
 
     以下是log记录辅以注释
@@ -119,10 +130,11 @@ tags:
 
     Thanks for using MariaDB!
     ```
+
 * 至此，mariadb数据库的安装基本完成。[本文参考连接](https://jaminzhang.github.io/mysql/yum-install-MariaDB-in-CentOS7/)
 
     使用如下命令登陆数据库。
-    ```
+
+    ```bash
     mysql -u root -p
     ```
-
