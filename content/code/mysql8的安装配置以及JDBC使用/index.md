@@ -1,15 +1,18 @@
 ---
-title: mysql8的安装配置以及JDBC使用
-date: 2018-12-28 16:11:13
-categories: 
-    - CODE
-tags: 
-    - 数据库
+title: "mysql8的安装配置以及JDBC使用"
+subtitle: ""
+description: ""
+date: 2018-12-28T16:11:13+08:00
+image: ""
+tags: ["数据库"]
+categories: ["CODE"]
+draft: false
 ---
 
 ## 摘要
 
 * 基于windows下mysql 8.0.*版本安装以及配置等操作介绍
+
     * 基本安装
     * 初始化
     * 密码重置
@@ -17,7 +20,7 @@ tags:
     * 创建列表
 * 以及书本《Java简明教程》实列代码的采坑
 
-![](Sqlserver.jpg)
+![cover](Sqlserver.jpg)
 
 <!--more-->
 

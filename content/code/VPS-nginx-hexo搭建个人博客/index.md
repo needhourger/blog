@@ -1,11 +1,12 @@
 ---
-title: VPS+nginx+hexo搭建个人博客
-date: 2018-12-27 15:54:11
-categories: 
-    - CODE
-tags: 
-    - 建站
-comments: true
+title: "VPS+nginx+hexo搭建个人博客"
+subtitle: ""
+description: ""
+date: 2018-12-27T15:54:11+08:00
+image: ""
+tags: ["建站"]
+categories: ["CODE"]
+draft: false
 ---
 
 ## 开始前的碎碎念
@@ -33,14 +34,14 @@ comments: true
 1. 安装git
 
     * windows [下载](https://git-scm.com/downloads)
-        
-    
+
+
     * linux使用包管理器安装git ~~(不了解包管理器的同学就不要看下去了吧)~~
-        
+
         ```
         yum install git -y
         ```
-    
+
     * 更多[Git基本配置工作](https://git-scm.com/book/zh/v1)
 
 
@@ -57,7 +58,7 @@ comments: true
 1. 安装hexo
 
     使用node.js的npm安装hexo，这里windows可以先设置一下npm的默认安装目录，本强迫症表示你默认装在c盘我很难受。打开命令行，运行:
-    
+
     **坑：原教程里写了路径末尾加了node_modules，事实证明并不需要，这个命令会在目标目录生成一个node_modules。我这里设置默认安装路径在node.js本体的安装路径，因为这个路径里本身就有一个用于安装npm本身的nnode_modules文件夹。当然即使这样做了，npm运行缓存还是会存在c盘，需要继续修改设置的请移步[这里](https://www.jianshu.com/p/645c758d4428)**
 
     ```
@@ -69,9 +70,9 @@ comments: true
         npm install -g hexo-cli
         ```
         **坑：-g意为global，全局安装就会安装到你设置的安装目录里，没有这个参数默认会安装在你npm当时命令行运行的目录里创建node_moudels并进行安装**
-    
+
 1. 搭建博客
-    
+
     **后续关于博客搭建的章节可以参照[官方教程](https://hexo.io/zh-cn/docs/setup)**
 
     * 创建一个文件夹用于做博客的目录
@@ -89,7 +90,7 @@ comments: true
     * 修改博客目录下的_congfig.yml文件[官方教程](https://hexo.io/zh-cn/docs/configuration)
 
 1. 书写你的第一篇文章：
-    
+
     * 在你的博客文件夹内运行命令
 
         ```
@@ -118,18 +119,18 @@ comments: true
         hexo s
         ```
     **坑：如果generate出错请检查博客文件夹下_config.yml内的配置是否正确，每一个冒号后面必须跟一个空格！！！**
-    
+
     **坑：如果没能本地预览可能是因为缺少hexo-server，请运行npm install hexo-server --save**
 
 1. 安装hexo-deployer-git
-    
+
     安装该模块方便使用hexo最牛逼的推送功能
 
     ```
     npm install hexo-deployer-git --save
     ```
 1. 本地配置git生成私钥以及公钥
-    
+
     在git安装配置没有出错的情况下，环境变量完成配置，用户信息设置完全的情况下：
     ```
     ssh-keygen -t rsa -C "your_email@email.com"
@@ -198,7 +199,7 @@ comments: true
         ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:80
         ```
     **坑：云服务器供应商还会提供安全组一类的东西，请在那里面也放行对应端口**
-    
+
 1. 测试nginx是否配置成功
 
     * 服务器本地访问又返回结果：
@@ -235,7 +236,7 @@ comments: true
     * 创建authorized_keys文件，讲你本地电脑上的公钥内的文件内容复制到该文件内。
 
         ~~这里怎么操作自我发挥吧，把公钥文件传上来该跟名字，或者你开心就好~~
-        
+
         设置密钥文件只读，文件夹权限:
         ```
         chmod 600 authorized_keys
@@ -263,13 +264,13 @@ comments: true
         git --work-tree=/home/www/blog --git-dir=/home/git/blog.git checkout -f
         ```
         这是一个linux shell规定了当接受到post请求之后的动作，把文件内容放到网站根目录里
-    
+
     **在你的本地！！！** 测试ssh 免密码连接
         ```
         ssh -T git@your_host
         ```
         如果没有提示输入密码证明配置成功
-    
+
 ---
 ## 回到本地电脑
 
@@ -278,28 +279,28 @@ comments: true
     ```
     # Deployment
     ## Docs: https://hexo.io/docs/deployment.html
-    deploy: 
+    deploy:
      type: git
      repo: git@your_host:blog.git
      branch: master
     ```
 
 1. 愉快的测试推送把！~ ~~或者死于bug error hhh~~
-    
+
     ```
     hexo deploy
-    ```    
-    
+    ```
+
     或者
 
     ```
     hexo d
     ```
 
-**坑：不安装hexo-deployer-git是不可能推送的** 
+**坑：不安装hexo-deployer-git是不可能推送的**
 
-**坑：如果访问页面出现cantnot GET/ 请检查主题设置，网上很多教程的设置基于hexo next主题，涉及到主题文件的请看你的主题的作者自己的文档，而不是看某dn** 
+**坑：如果访问页面出现cantnot GET/ 请检查主题设置，网上很多教程的设置基于hexo next主题，涉及到主题文件的请看你的主题的作者自己的文档，而不是看某dn**
 
 
-    
+
 

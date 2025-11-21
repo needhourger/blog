@@ -1,11 +1,12 @@
 ---
-title: Python常用Skill
-date: 2019-01-25 17:01:19
-update: 2019-04-11 14:58:00
-categories:
-    - CODE
-tags:
-    - Python
+title: "Python常用Skill"
+subtitle: ""
+description: ""
+date: 2019-01-25T17:01:19+08:00
+image: ""
+tags: ["Python"]
+categories: ["CODE"]
+draft: false
 ---
 ## Python常用技能汇总
 * 这里是一些写python脚本时常用的小技巧,长期更新

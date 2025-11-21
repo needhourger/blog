@@ -1,12 +1,10 @@
 ---
-title: "C语言基础精炼"
-subtitle: ""
-description: ""
-date: 2019-03-30T21:46:48+08:00
-image: ""
-tags: ["C/C++"]
-categories: ["CODE"]
-draft: false
+title: C语言基础精炼
+categories:
+  - CODE
+tags:
+  - C/C++
+date: 2019-03-30 21:46:48
 ---
 
 

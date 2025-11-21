@@ -1,12 +1,12 @@
 ---
-title: Dijkstra算法课设
-date: 2018-12-27 18:35:23
-update: 2018-12-27 21:48:23
-categories: 
-    - CODE
-tags: 
-    - 算法
-    - 象牙塔
+title: "Dijkstra算法课设"
+subtitle: ""
+description: ""
+date: 2018-12-27T18:35:23+08:00
+image: ""
+tags: ["算法","象牙塔"]
+categories: ["CODE"]
+draft: false
 ---
 
 >## Dijkstra算法课设
