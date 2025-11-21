@@ -1,19 +1,21 @@
 ---
-title: word2vec词向量训练
-date: 2019-03-13 10:26:22
-categories:
-    - CODE
-tags:
-    - Python
-    - 机器学习
+title: "ApeRAG架构分析"
+subtitle: ""
+description: ""
+date: 2025-10-21T14:08:55+08:00
+image: ""
+tags: ["AI","LLM"]
+categories: ["AI"]
+draft: false
 ---
 
->## 概述
+## 概述
+
 * 最近踩坑机器学习神经网络中的文本处理,所以有了这篇博客.记录一下基于python word2vec训练中文词向量的方法(英文也同样适用)
 ~~虽然事后我发现我需要的并不是词向量word2vec,而是训练获得句子向量的方法,权当做个预告吧(咕咕咕)~~
 
 * 词向量训练:在自然语言处理中将每个单词映射到一个空间向量过程,从而获得每个词汇之间的关联性.(可能说的不太对,大概就这样吧,不是理论帝)
-  
+
 ![ 少数正经的图](0.jpg)
 
 <!--more-->
@@ -23,15 +25,18 @@ tags:
 * python:3.5+
 
 1. 安装相应依赖
-   ```
+
+   ```bash
    pip install jieba 
    pip install gensim
    ```
+
    * jieba用于中文文本分词,英文可直接使用空格分割分词
    * gensim词向量训练模块
 
 2. 数据预处理
-   ```
+
+   ```python
    def load():
         with open("./train.tsv","r",encoding="utf-8") as f:
             lines=f.readlines()
@@ -39,13 +44,14 @@ tags:
             return lines
         return None
    ```
+
    这里采用的数据格式是以'\t'分割的tsv文件,每一行包含一个句子以及其对应标签.这里将二者共同训练
 
 3. 分词并去除停止词
 
     * 停止词:指句子中的语气词,特殊符号,数字等对句子意义判别无帮助的词汇,这里推荐几个常用的中文停止词表,你也可以一句自己项目需要自己制作适合的停止词表[Github](https://github.com/goto456/stopwords)
 
-    ```
+    ```python
     # 导入结巴分词
     import jieba
 
@@ -77,7 +83,8 @@ tags:
     ```
 
 4. 模型训练
-    ```
+
+    ```python
     # 导入词向量训练模块
     from gensim.models import word2vec
     from gensim.models.word2vec import LineSentence
@@ -108,16 +115,19 @@ tags:
     # 从之前完成分词的数据中装载训练数据,模型sentence参数可以是一个list
     # 但是大批量数据时建议使用word2vec自带的类型导入
     sentence=LineSentence("./cutwords.txt")
-    model=model_train(sentence,300,5,2,5)    
+    model=model_train(sentence,300,5,2,5)
     ```
+
 5. 保存模型
-    ```
+
+    ```python
     # 参数为保存的文件名
     model.save("modeltest")
     ```
 
 6. 模型的二次训练
-    ```
+
+    ```python
     # 读取模型
     model = gensim.models.Word2Vec.load('modeltest')
     # 追加训练
@@ -125,7 +135,8 @@ tags:
     ```
 
 7. 模型使用
-    ```
+
+    ```python
     # 根据给定的词汇给出10个最相近的词汇
     model.most_similar("男人")
 
@@ -138,4 +149,3 @@ tags:
     # 获得单个词汇的词向量
     model['男人']
     ```
-
