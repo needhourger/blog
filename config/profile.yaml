@@ -1,15 +1,18 @@
 # profile.yaml —— 覆盖主题的 src/config/profileConfig.ts
 # 只写想改的键，其余保持主题默认值（主题升级后新默认值会自动生效）。
 avatar: assets/images/demo-avatar.webp
-name: Shirone
-bio: The rain remembers what the sky forgot to say.
+name: Ciel Chan
+bio: I am a wandering soul, lost in the vastness of the memorial sea. Through my blog, I share my thoughts, experiences, and reflections on life, love, and the beauty of the world around us. Join me on this journey as we navigate the waves of existence together.
 links:
   - name: X
     icon: fa6-brands:x-twitter
-    url: https://x.com
-  - name: Steam
-    icon: fa6-brands:steam
-    url: https://store.steampowered.com
+    url: https://x.com/yukiricc
   - name: GitHub
     icon: fa6-brands:github
-    url: https://github.com/LyraVoid/Shirone
+    url: https://github.com/needhourger
+  - name: Email
+    icon: fa6-solid:envelope
+    url: mailto:chainyuuki@gmail.com
+  - name: Instagram
+    icon: fa6-brands:instagram
+    url: https://www.instagram.com/yuukiricc

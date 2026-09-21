@@ -36,7 +36,7 @@ export interface CompassShelf {
 }
 
 export const compassData: CompassShelf[] = [
-	{
+/* 	{
 		key: "dev",
 		name: "Development",
 		icon: "material-symbols:code-rounded",
@@ -60,60 +60,5 @@ export const compassData: CompassShelf[] = [
 				note: "Q&A and debugging",
 			},
 		],
-	},
-	{
-		key: "design",
-		name: "Design",
-		icon: "material-symbols:palette-outline-rounded",
-		blurb: "Colors, icons and inspiration",
-		entries: [
-			{
-				label: "Iconify",
-				href: "https://icon-sets.iconify.design",
-				note: "Searchable open-source icon sets",
-			},
-			{
-				label: "Material Symbols",
-				href: "https://fonts.google.com/icons",
-				note: "Official M3 icon set",
-				icon: "material-symbols:star-rounded",
-			},
-			{
-				label: "Excalidraw",
-				href: "https://excalidraw.com",
-				note: "Hand-drawn whiteboard collaboration",
-			},
-		],
-	},
-	{
-		key: "tools",
-		name: "Tools",
-		icon: "material-symbols:build-outline-rounded",
-		entries: [
-			{
-				label: "Squoosh",
-				href: "https://squoosh.app",
-				note: "Image compression & conversion",
-			},
-			{
-				label: "Regex101",
-				href: "https://regex101.com",
-				note: "Regex testing & debugging",
-			},
-		],
-	},
-	{
-		key: "reads",
-		name: "Reading",
-		icon: "material-symbols:auto-stories-outline-rounded",
-		entries: [
-			{ label: "Hacker News", href: "https://news.ycombinator.com" },
-			{ label: "V2EX", href: "https://www.v2ex.com" },
-			{
-				label: "Solidot",
-				href: "https://www.solidot.org",
-				note: "Tech and culture news",
-			},
-		],
-	},
+	}, */
 ];
