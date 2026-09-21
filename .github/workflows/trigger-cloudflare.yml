@@ -1,0 +1,17 @@
+name: Trigger Cloudflare Pages Build
+
+on:
+  push:
+    branches: [astro]
+  workflow_dispatch:
+
+jobs:
+  deploy-hook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Cloudflare Deploy Hook
+        env:
+          CLOUDFLARE_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        if: ${{ env.CLOUDFLARE_DEPLOY_HOOK != '' }}
+        run: |
+          curl -s -S -X POST "${{ env.CLOUDFLARE_DEPLOY_HOOK }}"
