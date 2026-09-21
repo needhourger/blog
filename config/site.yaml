@@ -1,7 +1,7 @@
 # site.yaml —— 覆盖主题的 src/config/siteConfig.ts
 # 只写想改的键，其余保持主题默认值（主题升级后新默认值会自动生效）。
-site: https://shirone.mysqil.com/
+site: https://konnoyuuki.cc/
 base: /
-title: Shirone
-subtitle: A Material 3 anime blog
+title: One More Blog
+subtitle: Wandering the memorial sea ...
 lang: en
