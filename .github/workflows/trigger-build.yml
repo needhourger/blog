@@ -2,7 +2,7 @@ name: Trigger Theme Build
 
 on:
   push:
-    branches: [main]
+    branches: [astro]
   workflow_dispatch:
 
 jobs:
