@@ -1,0 +1,29 @@
+enable: true
+arrangement: dual
+side: left
+components:
+  - type: profile
+    enable: true
+    slot: top
+  - type: stats
+    enable: true
+    slot: top
+    column: secondary
+  - type: calendar
+    enable: false
+    slot: top
+    column: secondary
+  - type: categories
+    enable: true
+    slot: sticky
+    collapseAfter: 5
+  - type: tags
+    enable: true
+    slot: sticky
+    collapseAfter: 6
+  - type: toc
+    enable: true
+    slot: sticky
+    column: secondary
+    pages:
+      - post

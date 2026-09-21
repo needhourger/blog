@@ -1,8 +1,8 @@
 # profile.yaml —— 覆盖主题的 src/config/profileConfig.ts
 # 只写想改的键，其余保持主题默认值（主题升级后新默认值会自动生效）。
-avatar: assets/images/demo-avatar.webp
+avatar: assets/images/avatar.jpg
 name: Ciel Chan
-bio: I am a wandering soul, lost in the vastness of the memorial sea. Through my blog, I share my thoughts, experiences, and reflections on life, love, and the beauty of the world around us. Join me on this journey as we navigate the waves of existence together.
+bio: I am a wandering soul, lost in the vastness of the memorial sea.
 links:
   - name: X
     icon: fa6-brands:x-twitter

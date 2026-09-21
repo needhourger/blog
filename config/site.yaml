@@ -4,4 +4,24 @@ site: https://konnoyuuki.cc/
 base: /
 title: One More Blog
 subtitle: Wandering the memorial sea ...
-lang: en
+lang: zh_CN
+timeZone: Asia/Singapore
+themeColor:
+  hue: 180
+  fixed: false
+  style: rainbow
+wallpaperMode:
+  defaultMode: banner
+texture:
+  enable: true
+  defaultPreset: sakura
+banner:
+  homeText:
+    enable: true
+    title: Memorial Sea
+    subtitle:
+      - 从前的日色变得慢
+      - 车，马，邮件都慢 
+      - 一生只够爱一个人
+    typewriter:
+      enable: true

@@ -3,3 +3,14 @@
   需要在 src/config/footerConfig.ts 中保持 enable: true；
   内容将注入在页脚版权信息上方；若文件留空或仅保留注释，则不会产生任何额外的 DOM 结构。
 -->
+<div style="text-align:center;font-size:1.2em;opacity:0.75;"> 本站已运行 <span id="site-days">…</span> 天 </div>
+<script>
+  // todo: fix script not work in small screen. there are two elements with the same id "site-days". so these code do not work in small screen.
+  const start = new Date("2017-09-20T20:17:43+00:00").getTime()
+  const el = document.getElementById("site-days")
+  const update = () => {
+    el.textContent = Math.floor((Date.now() - start) / 86400000)
+  }
+  update()
+  setInterval(update, 3600000)
+</script>
