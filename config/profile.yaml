@@ -1,0 +1,15 @@
+# profile.yaml —— 覆盖主题的 src/config/profileConfig.ts
+# 只写想改的键，其余保持主题默认值（主题升级后新默认值会自动生效）。
+avatar: assets/images/demo-avatar.webp
+name: Shirone
+bio: The rain remembers what the sky forgot to say.
+links:
+  - name: X
+    icon: fa6-brands:x-twitter
+    url: https://x.com
+  - name: Steam
+    icon: fa6-brands:steam
+    url: https://store.steampowered.com
+  - name: GitHub
+    icon: fa6-brands:github
+    url: https://github.com/LyraVoid/Shirone
