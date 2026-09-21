@@ -1,11 +1,8 @@
 ---
-title: "Python requests ssl报错"
-subtitle: ""
-description: ""
-date: 2019-04-16T23:23:02+08:00
-image: ""
-tags: ["Python", "爬虫"]
-categories: ["CODE"]
+title: Python requests ssl报错
+published: 2019-04-16T23:23:02+08:00
+tags: [Python, 爬虫]
+category: CODE
 draft: false
 ---
 ## 问题背景

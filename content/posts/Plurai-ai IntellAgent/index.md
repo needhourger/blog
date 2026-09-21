@@ -1,13 +1,8 @@
 ---
-title: "plurai-ai/intellagent 调研"
-subtitle: ""
-description: ""
-date: 2025-11-10T15:51:19+08:00
-image: ""
-tags:
-  - AI
-  - LLM
-categories: []
+title: plurai-ai/intellagent 调研
+published: 2025-11-10T15:51:19+08:00
+tags: [AI, LLM]
+category: CODE
 draft: false
 ---
 

@@ -1,11 +1,9 @@
 ---
-title: "家庭软路由魔法指北"
-subtitle: "PVE + Openwrt旁路由 + passwall2 + smartdns + adguardhome 实践"
-description: ""
-date: 2025-05-13T13:31:43+08:00
-image: ""
-tags: []
-categories: []
+title: 家庭软路由魔法指北
+published: 2025-05-13T13:31:43+08:00
+description: PVE + Openwrt旁路由 + passwall2 + smartdns + adguardhome 实践
+tags: [Openwrt]
+category: CODE
 draft: false
 ---
 

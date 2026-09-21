@@ -1,11 +1,8 @@
 ---
-title:          "Langsmith初探"
-subtitle:       ""
-description:    ""
-date:           2024-01-18T17:27:44+08:00
-image:          ""
-tags:           ["AI"]
-categories:     ["CODE"]
+title: Langsmith初探
+published: 2024-01-18T17:27:44+08:00
+tags: [AI]
+category: CODE
 draft: true
 ---
 # Langsmith初探

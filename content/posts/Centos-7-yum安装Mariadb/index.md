@@ -1,11 +1,8 @@
 ---
-title: "Centos 7 yum安装Mariadb"
-subtitle: ""
-description: ""
-date: 2018-12-29T15:51:00+08:00
-image: ""
-tags: ["Linux", "数据库"]
-categories: ["CODE"]
+title: Centos 7 yum安装Mariadb
+published: 2018-12-29T15:51:00+08:00
+tags: [Linux, 数据库]
+category: CODE
 draft: false
 ---
 

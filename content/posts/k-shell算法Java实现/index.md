@@ -1,12 +1,10 @@
 ---
 title: k-shell算法Java实现
-date: 2018-12-28 15:06:28
-updated: 2018-12-19 17:02:28
-categories:
-    - CODE
-tags:
-    - 算法
-    - 象牙塔
+published: 2018-12-28T15:06:28+08:00
+tags: [算法, 象牙塔]
+category: CODE
+draft: false
+updated: 2018-12-19T17:02:28+08:00
 ---
 
 ## 摘要

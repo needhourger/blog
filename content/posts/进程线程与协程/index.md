@@ -1,11 +1,8 @@
 ---
-title:          "进程·线程·协程初探"
-subtitle:       ""
-description:    ""
-date:           2024-02-06T15:03:10+08:00
-image:          ""
-tags:           ["操作系统"]
-categories:     ["CODE"]
+title: 进程·线程·协程初探
+published: 2024-02-06T15:03:10+08:00
+tags: [操作系统]
+category: CODE
 draft: false
 ---
 ## Start

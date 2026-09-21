@@ -1,11 +1,8 @@
 ---
-title: "Win11重置本地账户密码"
-subtitle: ""
-description: ""
-date: 2025-06-03T14:27:45+08:00
-image: ""
-tags: []
-categories: []
+title: Win11重置本地账户密码
+published: 2025-06-03T14:27:45+08:00
+tags: [Win11]
+category: CODE
 draft: false
 ---
 

@@ -1,11 +1,9 @@
 ---
-title: "记一场旅行"
-subtitle: "Another diary for SRS"
-description: "一篇大健康末期的泰国旅游记？"
-date: 2024-01-08T14:43:08+08:00
-image: ""
-tags: ["SRS", "LGBTQ+"]
-categories: ["LIFE"]
+title: 记一场旅行
+published: 2024-01-08T14:43:08+08:00
+description: 一篇大健康末期的泰国旅游记？
+tags: [SRS, LGBTQ+]
+category: LIFE
 draft: false
 ---
 

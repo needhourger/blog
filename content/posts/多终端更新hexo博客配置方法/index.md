@@ -1,10 +1,9 @@
 ---
 title: 多终端更新hexo博客配置方法
-date: 2019-01-02 17:27:22
-categories: 
-    - CODE
-tags: 
-    - 建站
+published: 2019-01-02T17:27:22+08:00
+tags: [建站]
+category: CODE
+draft: false
 ---
 
 ## 概述

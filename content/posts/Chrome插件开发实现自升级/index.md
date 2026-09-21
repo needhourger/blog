@@ -1,11 +1,8 @@
 ---
-title:          "Chrome插件开发实现自升级"
-subtitle:       ""
-description:    ""
-date:           2024-11-14T14:01:26+08:00
-image:          ""
-tags:           ["Chrome", "浏览器拓展"]
-categories:     []
+title: Chrome插件开发实现自升级
+published: 2024-11-14T14:01:26+08:00
+tags: [Chrome, 浏览器拓展]
+category: CODE
 draft: false
 ---
 

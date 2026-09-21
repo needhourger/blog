@@ -1,11 +1,8 @@
 ---
-title: "C++与SQLite"
-subtitle: ""
-description: ""
-date: 2019-05-14T08:47:25+08:00
-image: ""
-tags: ["C/C++", "数据库"]
-categories: ["CODE"]
+title: C++与SQLite
+published: 2019-05-14T08:47:25+08:00
+tags: [C/C++, 数据库]
+category: CODE
 draft: false
 ---
 

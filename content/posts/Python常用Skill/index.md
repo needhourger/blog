@@ -1,11 +1,8 @@
 ---
-title: "Python常用Skill"
-subtitle: ""
-description: ""
-date: 2019-01-25T17:01:19+08:00
-image: ""
-tags: ["Python"]
-categories: ["CODE"]
+title: Python常用Skill
+published: 2019-01-25T17:01:19+08:00
+tags: [Python]
+category: CODE
 draft: false
 ---
 ## Python常用技能汇总

@@ -1,11 +1,8 @@
 ---
-title:          "计算机存储单位详解"
-subtitle:       ""
-description:    ""
-date:           2023-03-07T13:54:47+08:00
-image:          ""
-tags:           []
-categories:     []
+title: 计算机存储单位详解
+published: 2023-03-07T13:54:47+08:00
+tags: []
+category: CODE
 draft: false
 ---
 # 计算机存储单位详解

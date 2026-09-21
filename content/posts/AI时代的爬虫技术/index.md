@@ -1,11 +1,8 @@
 ---
-title: "AI时代的爬虫技术"
-subtitle: ""
-description: ""
-date: 2025-12-19T13:55:16+08:00
-image: ""
-tags: ["爬虫"]
-categories: []
+title: AI时代的爬虫技术
+published: 2025-12-19T13:55:16+08:00
+tags: [爬虫]
+category: CODE
 draft: false
 ---
 

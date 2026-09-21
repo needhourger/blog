@@ -1,11 +1,8 @@
 ---
-title: "大模型真的有意识么"
-subtitle: ""
-description: ""
-date: 2026-03-06T18:00:05+08:00
-image: ""
-tags: ["AI", "杂谈"]
-categories: []
+title: 大模型真的有意识么
+published: 2026-03-06T18:00:05+08:00
+tags: [AI, 杂谈]
+category: CODE
 draft: false
 ---
 

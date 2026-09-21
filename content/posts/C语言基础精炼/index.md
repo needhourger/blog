@@ -1,10 +1,9 @@
 ---
 title: C语言基础精炼
-categories:
-  - CODE
-tags:
-  - C/C++
-date: 2019-03-30 21:46:48
+published: 2019-03-30T21:46:48+08:00
+tags: [C/C++]
+category: CODE
+draft: false
 ---
 
 

@@ -1,11 +1,8 @@
 ---
-title: "MySQL导入csv文件数据"
-subtitle: ""
-description: ""
-date: 2019-05-15T15:33:28+08:00
-image: ""
-tags: ["数据库"]
-categories: ["CODE"]
+title: MySQL导入csv文件数据
+published: 2019-05-15T15:33:28+08:00
+tags: [数据库]
+category: CODE
 draft: false
 ---
 

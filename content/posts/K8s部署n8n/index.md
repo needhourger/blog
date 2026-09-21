@@ -1,11 +1,8 @@
 ---
-title: "K8s部署n8n"
-subtitle: ""
-description: ""
-date: 2025-07-22T10:18:47+08:00
-image: ""
-tags: [ai, k8s, n8n]
-categories: []
+title: K8s部署n8n
+published: 2025-07-22T10:18:47+08:00
+tags: [AI, K8S, N8N]
+category: CODE
 draft: false
 ---
 

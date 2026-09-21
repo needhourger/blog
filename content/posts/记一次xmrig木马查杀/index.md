@@ -1,11 +1,9 @@
 ---
-title:          "记录一次xmrig木马查杀"
-subtitle:       ""
-description:    ""
-date:           2024-01-10T14:26:37+08:00
-image:          "0.PNG"
-tags:           ["Security"]
-categories:     ["CODE"]
+title: 记录一次xmrig木马查杀
+published: 2024-01-10T14:26:37+08:00
+image: ./0.PNG
+tags: [Security]
+category: CODE
 draft: false
 ---
 ![](./0.PNG)

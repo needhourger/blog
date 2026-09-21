@@ -1,11 +1,8 @@
 ---
-title:          "life is struggle"
-subtitle:       ""
-description:    ""
-date:           2024-11-28T10:40:04+08:00
-image:          ""
-tags:           []
-categories:     []
+title: life is struggle
+published: 2024-11-28T10:40:04+08:00
+tags: []
+category: LIFE
 draft: false
 ---
 

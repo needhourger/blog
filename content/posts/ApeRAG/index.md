@@ -1,11 +1,8 @@
 ---
-title: "ApeRAG架构分析"
-subtitle: ""
-description: ""
-date: 2025-10-21T14:08:55+08:00
-image: ""
-tags: ["AI","LLM"]
-categories: ["AI"]
+title: ApeRAG架构分析
+published: 2025-10-21T14:08:55+08:00
+tags: [AI, LLM]
+category: CODE
 draft: false
 ---
 

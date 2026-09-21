@@ -1,11 +1,9 @@
 ---
-title: "Transcend Your Dream"
-subtitle: "Educational and Career Insights for the Trans Community"
-description: ""
-date: 2024-07-19T11:15:08+08:00
-image: ""
-tags: ["LGBTQ+"]
-categories: ["LIFE"]
+title: Transcend Your Dream
+published: 2024-07-19T11:15:08+08:00
+description: Educational and Career Insights for the Trans Community
+tags: [LGBTQ+]
+category: LIFE
 draft: false
 ---
 

@@ -1,11 +1,8 @@
 ---
-title: "mysql8的安装配置以及JDBC使用"
-subtitle: ""
-description: ""
-date: 2018-12-28T16:11:13+08:00
-image: ""
-tags: ["数据库"]
-categories: ["CODE"]
+title: mysql8的安装配置以及JDBC使用
+published: 2018-12-28T16:11:13+08:00
+tags: [数据库]
+category: CODE
 draft: false
 ---
 

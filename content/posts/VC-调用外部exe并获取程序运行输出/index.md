@@ -1,11 +1,8 @@
 ---
-title: "VC++调用外部exe并获取程序运行输出"
-subtitle: ""
-description: ""
-date: 2019-01-17T12:16:36+08:00
-image: ""
-tags: ["C/C++"]
-categories: ["CODE"]
+title: VC++调用外部exe并获取程序运行输出
+published: 2019-01-17T12:16:36+08:00
+tags: [C/C++]
+category: CODE
 draft: false
 ---
 

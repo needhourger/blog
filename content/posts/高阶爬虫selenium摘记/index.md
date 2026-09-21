@@ -1,12 +1,9 @@
 ---
 title: 高阶爬虫selenium摘记
-date: 2019-03-08 14:46:18
-categories:
-    - CODE
-tags:
-    - Python
-    - 爬虫
-    - selenium
+published: 2019-03-08T14:46:18+08:00
+tags: [Python, 爬虫, selenium]
+category: CODE
+draft: false
 ---
 ## 概述
 

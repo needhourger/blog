@@ -1,11 +1,8 @@
 ---
-title: "MYSQL密码重置详解"
-subtitle: ""
-description: ""
-date: 2019-05-29T11:04:15+08:00
-image: ""
-tags: ["数据库"]
-categories: ["CODE"]
+title: MYSQL密码重置详解
+published: 2019-05-29T11:04:15+08:00
+tags: [数据库]
+category: CODE
 draft: false
 ---
 

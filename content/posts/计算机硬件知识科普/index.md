@@ -1,11 +1,9 @@
 ---
-title: "计算机硬件知识科普"
-subtitle: "科普常规PC硬件知识"
-description: ""
-date: 2023-01-10T14:19:26+08:00
-image: ""
-tags: ["硬件知识"]
-categories: ["Code"]
+title: 计算机硬件知识科普
+published: 2023-01-10T14:19:26+08:00
+description: 科普常规PC硬件知识
+tags: [硬件知识]
+category: CODE
 draft: false
 ---
 

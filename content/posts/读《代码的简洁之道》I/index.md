@@ -1,11 +1,9 @@
 ---
-title:          "读《代码的简洁之道》I"
-subtitle:       "防御性编程是眼前的苟且，优雅的代码才是诗和远方"
-description:    ""
-date:           2024-08-01T14:52:46+08:00
-image:          ""
-tags:           ['Notes']
-categories:     []
+title: 读《代码的简洁之道》I
+published: 2024-08-01T14:52:46+08:00
+description: 防御性编程是眼前的苟且，优雅的代码才是诗和远方
+tags: [Notes]
+category: CODE
 draft: false
 ---
 

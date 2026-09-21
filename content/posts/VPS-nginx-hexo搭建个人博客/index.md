@@ -1,11 +1,8 @@
 ---
-title: "VPS+nginx+hexo搭建个人博客"
-subtitle: ""
-description: ""
-date: 2018-12-27T15:54:11+08:00
-image: ""
-tags: ["建站"]
-categories: ["CODE"]
+title: VPS+nginx+hexo搭建个人博客
+published: 2018-12-27T15:54:11+08:00
+tags: [建站]
+category: CODE
 draft: false
 ---
 

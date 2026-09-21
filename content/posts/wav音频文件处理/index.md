@@ -1,11 +1,9 @@
 ---
-title: "wav音频文件处理"
-subtitle: "wav音频文件数据结构初识"
-description: ""
-date: 2025-07-25T10:44:37+08:00
-image: ""
-tags: [python, wav]
-categories: []
+title: wav音频文件处理
+published: 2025-07-25T10:44:37+08:00
+description: wav音频文件数据结构初识
+tags: [Python, WAV]
+category: CODE
 draft: false
 ---
 

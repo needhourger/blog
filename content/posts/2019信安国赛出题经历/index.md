@@ -1,11 +1,8 @@
 ---
-title: "2019信安国赛出题经历"
-subtitle: ""
-description: ""
-date: 2019-06-05T15:22:45+08:00
-image: ""
-tags: ["Python", "数据库"]
-categories: ["CODE"]
+title: 2019信安国赛出题经历
+published: 2019-06-05T15:22:45+08:00
+tags: [Python, 数据库]
+category: CODE
 draft: false
 ---
 

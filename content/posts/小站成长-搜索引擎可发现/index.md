@@ -1,10 +1,9 @@
 ---
 title: Blog搜索引擎可发现
-tags:
-  - 网站搭建
-date: 2018-12-27 23:53:12
-categories:
-    - CODE
+published: 2018-12-27T23:53:12+08:00
+tags: [网站搭建]
+category: CODE
+draft: false
 ---
 
 

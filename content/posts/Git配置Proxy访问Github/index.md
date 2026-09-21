@@ -1,11 +1,8 @@
 ---
-title:          "Git配置Proxy访问Github"
-subtitle:       ""
-description:    ""
-date:           2024-01-18T11:08:00+08:00
-image:          ""
-tags:           ["Wall"]
-categories:     ["CODE"]
+title: Git配置Proxy访问Github
+published: 2024-01-18T11:08:00+08:00
+tags: [Wall]
+category: CODE
 draft: false
 ---
 # Git配置Proxy访问Github

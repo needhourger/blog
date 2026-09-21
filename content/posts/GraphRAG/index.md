@@ -1,11 +1,9 @@
 ---
-title: "GraphRAG与LazyGraphRAG"
-subtitle: "让GraphRAG读网文《诡秘之主》"
-description: ""
-date: 2025-10-10T13:36:03+08:00
-image: ""
+title: GraphRAG与LazyGraphRAG
+published: 2025-10-10T13:36:03+08:00
+description: 让GraphRAG读网文《诡秘之主》
 tags: []
-categories: []
+category: CODE
 draft: false
 ---
 

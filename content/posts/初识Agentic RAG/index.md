@@ -1,11 +1,8 @@
 ---
-title:          "初识Agentic RAG"
-subtitle:       ""
-description:    ""
-date:           2024-09-03T10:45:00+08:00
-image:          ""
-tags:           ["AI"]
-categories:     []
+title: 初识Agentic RAG
+published: 2024-09-03T10:45:00+08:00
+tags: [AI]
+category: CODE
 draft: false
 ---
 

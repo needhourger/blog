@@ -1,11 +1,8 @@
 ---
-title:          "记一次Slurm集群部署"
-subtitle:       ""
-description:    ""
-date:           2023-07-13T00:52:36+08:00
-image:          ""
-tags:           []
-categories:     ["CODE"]
+title: 记一次Slurm集群部署
+published: 2023-07-13T00:52:36+08:00
+tags: []
+category: CODE
 draft: false
 ---
 # 记一次Slurm集群环境部署
