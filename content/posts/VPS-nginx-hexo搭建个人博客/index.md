@@ -16,7 +16,7 @@ draft: false
 ## requires
 * 一台服务器，本例子是linux centos,阿里的云服务器
 
-    ```
+    ```text
     [root@host~]# lsb_release -a
     LSB Version:    :core-4.1-amd64:core-4.1-noarch
     Distributor ID: CentOS
@@ -35,7 +35,7 @@ draft: false
 
     * linux使用包管理器安装git ~~(不了解包管理器的同学就不要看下去了吧)~~
 
-        ```
+        ```shell
         yum install git -y
         ```
 
@@ -58,12 +58,12 @@ draft: false
 
     **坑：原教程里写了路径末尾加了node_modules，事实证明并不需要，这个命令会在目标目录生成一个node_modules。我这里设置默认安装路径在node.js本体的安装路径，因为这个路径里本身就有一个用于安装npm本身的nnode_modules文件夹。当然即使这样做了，npm运行缓存还是会存在c盘，需要继续修改设置的请移步[这里](https://www.jianshu.com/p/645c758d4428)**
 
-    ```
+    ```shell
     npm config set prefix "E:\node.js\"
     ```
 
     * 安装hexo
-        ```
+        ```shell
         npm install -g hexo-cli
         ```
         **坑：-g意为global，全局安装就会安装到你设置的安装目录里，没有这个参数默认会安装在你npm当时命令行运行的目录里创建node_moudels并进行安装**
@@ -74,11 +74,11 @@ draft: false
 
     * 创建一个文件夹用于做博客的目录
     * 切换到这个文件夹所在目录，运行命令：
-        ```
+        ```shell
         hexo init <folder name>
         ```
     * 进入该文件夹：
-        ```
+        ```shell
         npm install
         ```
     **坑：以上两步必不可缺，否则会产生缺少依赖问题，例如不生成静态文件（如x.html）的问题**
@@ -90,7 +90,7 @@ draft: false
 
     * 在你的博客文件夹内运行命令
 
-        ```
+        ```shell
         hexo new "Hallow world"
         ```
     * 会在source文件夹内的默认_posts文件夹下生成一个md文件，接下来就可以参照markdown语法愉快的敲代码了
@@ -98,21 +98,21 @@ draft: false
 1. 生成你的网站：
     * 在你的博客文件夹内运行命令
 
-        ```
+        ```shell
         hexo generate
         ```
         或者使用快捷缩写
-        ```
+        ```shell
         hexo g
         ```
 
     * 在本地预览你的博客网站
 
-        ```
+        ```shell
         hexo server
         ```
         或者使用快捷缩写
-        ```
+        ```shell
         hexo s
         ```
     **坑：如果generate出错请检查博客文件夹下_config.yml内的配置是否正确，每一个冒号后面必须跟一个空格！！！**
@@ -123,13 +123,13 @@ draft: false
 
     安装该模块方便使用hexo最牛逼的推送功能
 
-    ```
+    ```shell
     npm install hexo-deployer-git --save
     ```
 1. 本地配置git生成私钥以及公钥
 
     在git安装配置没有出错的情况下，环境变量完成配置，用户信息设置完全的情况下：
-    ```
+    ```shell
     ssh-keygen -t rsa -C "your_email@email.com"
     ```
     该命令会在c:\user\(你的电脑用户名)\.ssh文件加下生成密钥对。id_rsa文件为私钥，id_rsa.pub为公钥。
@@ -139,7 +139,7 @@ draft: false
 ## 服务器配置（linux）
 
 1. 安装nginx
-    ```
+    ```shell
     yum install nginx -y
     ```
 
@@ -153,7 +153,7 @@ draft: false
 
         基本只需要简单的修改默认配置中的网站根目录以及域名的设置，找到如下字段
 
-        ```
+        ```nginx
         listen       80 default_server;     # 默认端口
         listen       [::]:80 default_server;
         server_name  _;                     # 你的域名，没有的话根目录即可
@@ -161,35 +161,35 @@ draft: false
         ```
 
     * 启动nginx：
-        ```
+        ```shell
         service nginx start
         service nginx reload
         ```
 
     * 设置开机自启：
-        ```
+        ```shell
         chkconfig nginx on
         ```
         或者
-        ```
+        ```shell
         systemctl enable nginx.servcice
         ```
 
 1. 开放防火墙放行80端口
 
     * 运行
-        ```
+        ```shell
         iptables -A INPUT -p tcp --dport 80 -j ACCEPT
         ```
     * 保存防火墙设置
-        ```
+        ```shell
         service iptables save
         ```
         **坑：本人这条命令并没有执行成功，这个版本的linux似乎不支持这条命令，最后还是执行的service iptables reload**
 
     * 查看防火墙规则:
         出现这条内容意味着防火墙设置完成:
-        ```
+        ```text
         [root@host ~]# iptables --list -n
         Chain INPUT (policy ACCEPT)
         target     prot opt source               destination
@@ -200,7 +200,7 @@ draft: false
 1. 测试nginx是否配置成功
 
     * 服务器本地访问又返回结果：
-        ```
+        ```shell
         curl 127.0.0.1
         ```
     * 远程访问服务器网页端口，即在你的浏览器里输入服务器ip或者域名出现nginx默认页面即表示配置完成。
@@ -210,13 +210,13 @@ draft: false
     * 如果服务器没有git请参照上面安装git
     * 新建git用户,并设置用户密码
 
-        ```
+        ```shell
         useradd git
         passwd git
         ```
     * 新建网站目录,并修改网站根目录的用户拥有者为git用户
 
-        ```
+        ```shell
         cd /home
         mkdir www
         cd www
@@ -224,7 +224,7 @@ draft: false
         chown git:git blog
         ```
     * 切换为git用户，进入其家目录创建.ssh文件夹，并进入
-        ```
+        ```shell
         su git
         cd ~
         mkdir .ssh
@@ -235,35 +235,35 @@ draft: false
         ~~这里怎么操作自我发挥吧，把公钥文件传上来该跟名字，或者你开心就好~~
 
         设置密钥文件只读，文件夹权限:
-        ```
+        ```shell
         chmod 600 authorized_keys
         chmod 700 /home/git/.ssh
         ```
     ---
     * 配置ssh的配置文件/etc/ssh/sshd_config，修改如下词条
 
-    ```
+    ```text
     RSAAuthentication yes       # 开启rsa密钥认证
     PubkeyAuthentication yes    # 开启公钥认证
     AuthorizedKeysFile  .ssh/authorized_keys    # 设置存贮文件
     ```
     ---
     * 在你的git用户家目录下新建你的博客仓库,并初始化为git裸仓库
-        ```
+        ```shell
         mkdir blog.git
         git init --bare blog.git
         ```
 
     * 配置裸仓库:进入仓库文件夹，在hooks文件夹内新建post_receive。文件写下一下内容
 
-        ```
+        ```shell
         #!/bin/bash
         git --work-tree=/home/www/blog --git-dir=/home/git/blog.git checkout -f
         ```
         这是一个linux shell规定了当接受到post请求之后的动作，把文件内容放到网站根目录里
 
     **在你的本地！！！** 测试ssh 免密码连接
-        ```
+        ```shell
         ssh -T git@your_host
         ```
         如果没有提示输入密码证明配置成功
@@ -273,7 +273,7 @@ draft: false
 
 1. 编辑blog下的配置文件_config.yml
 
-    ```
+    ```yaml
     # Deployment
     ## Docs: https://hexo.io/docs/deployment.html
     deploy:
@@ -284,13 +284,13 @@ draft: false
 
 1. 愉快的测试推送把！~ ~~或者死于bug error hhh~~
 
-    ```
+    ```shell
     hexo deploy
     ```
 
     或者
 
-    ```
+    ```shell
     hexo d
     ```
 

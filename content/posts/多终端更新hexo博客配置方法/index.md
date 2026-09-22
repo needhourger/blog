@@ -23,27 +23,27 @@ draft: false
  **坑：** 如果你使用了三方主题，请把主题文件夹中的.git（可能为隐藏文件）文件夹删除。因为这个文件夹的存在会导致你后面推送的时候无法推送成功
 
 1. 在你的博客目录下运行命令,初始化
-    ```
+    ```shell
     git init
     ```
 2. 添加远程仓库
-    ```
+    ```shell
     //host 是你的远程仓库地址
     git add remote origin git@host:blog.git
     ```
 
 3. 新建分支并切换到新建的分支
-    ```
+    ```shell
     git checkout -b 分支名
     ```
 4. 接下来是git的基本操作，添加本地文件到git，以及提交
-    ```
+    ```shell
     git add *
     git commit -m "你的提交说明"
     ```
 
 5. 将文件提交到你所创建的分支（这里我创建的分支名为hexo）
-    ```
+    ```shell
     git push origin hexo
     ```
 
@@ -51,7 +51,7 @@ draft: false
 
 * 建议把准备长期使用的设备配置。（当然你不把新设备的公钥加入git服务器你也无法推送）
 * 在你的新设备上生成秘钥
-    ```
+    ```shell
     ssh-keygen -t rsa -C "your_email@email.com"
     ```
 * 将生成的公钥，即～/.ssh/id_rsa.pub文件的内容复制到git服务器的～/git/.ssh/authorized_keys文件中
@@ -63,12 +63,12 @@ draft: false
 
 ## 嗯，在新的设备上准备写博客
 1. 首先拉取hexo分支到本地
-    ```
+    ```shell
     //host你的git仓库地址
     git clone -b hexo git@host:blog.git
     ```
 2. 进入到克隆下来的文件夹内，安装相应依赖
-    ```
+    ```shell
     //进入文件夹
     cd blog
     //安装相应文件依赖
@@ -78,7 +78,7 @@ draft: false
     **当然这里要保证你新的设别上具有git以及node.js框架**
 
 3. 博客写完之后进行的操作
-    ```
+    ```shell
     //博客的编译部署操作
     hexo clean && hexo g && hexo d
 
@@ -92,7 +92,7 @@ draft: false
     git push origin hexo
     ```
 4. 在任意一台电脑上都别忘了拉取分支确保版本的一致性哦
-    ```
+    ```shell
     git pull origin hexo
     ```
 
@@ -108,7 +108,7 @@ draft: false
 * 网上多数教程linux下安装npm都是去nodejs官网下载安装。即使是直接面向kali的也是
 
 * 但是其实apt的源中包含了npm，直接使用包管理安装即可
-    ```
+    ```shell
     //确保系统最新
     apt update && apt upgrade -y && reboot
     //安装缺少的npm

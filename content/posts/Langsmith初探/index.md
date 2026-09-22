@@ -9,7 +9,7 @@ draft: true
 
 ## Langsmith 简介
 
-[Langsmith](https://www.langchain.com/langsmith)是一款由[Langchain](https://www.langchain.com/)团队开发的用于调试，测试，评估基于Langchain框架开发的LLM应用程序的工具。截至本文撰写时刻，该工具目前还在早期开发测试阶段，部分功能尚不完善。[Langsmith - https://smith.langchain.com/](https://smith.langchain.com/)目前是一个在线平台 ，需要注册账号并填写邀请码后才可以使用，同时不提供源码以实现本地私有化部署。截至本文撰写时刻，```lang_learners_2023```这个邀请码还是可用的。
+[Langsmith](https://www.langchain.com/langsmith)是一款由[Langchain](https://www.langchain.com/)团队开发的用于调试，测试，评估基于Langchain框架开发的LLM应用程序的工具。截至本文撰写时刻，该工具目前还在早期开发测试阶段，部分功能尚不完善。[Langsmith - https://smith.langchain.com/](https://smith.langchain.com/)目前是一个在线平台 ，需要注册账号并填写邀请码后才可以使用，同时不提供源码以实现本地私有化部署。截至本文撰写时刻，`lang_learners_2023`这个邀请码还是可用的。
 
 将Langsmith集成进自己开发的LLM应用的过程并不复杂，大多数功能仅仅需要在应用运行环境中添加Langsmith专有的环境变量即可实现，数据集测试功能则需要编写一些额外的测试代码。
 
@@ -77,7 +77,7 @@ Langsmith目前大致有如下功能（部分功能尚未完成实现）,这里�
 ### 基本集成
 
 - 最基础的集成可以通过给本地LLM应用添加运行环境变量实现。
-  ```
+  ```shell
   export LANGCHAIN_TRACING_V2=true
   export LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
   export LANGCHAIN_API_KEY="<your-api-key>"
@@ -97,12 +97,12 @@ Langsmith目前大致有如下功能（部分功能尚未完成实现）,这里�
 - 要使用数据集测试功能，除了刚刚设置的环境变量等还需要一些额外的代码修改
 
 - 基本环境变量
-  ```
+  ```shell
   export LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
   export LANGCHAIN_API_KEY=<your-api-key>
   ```
 - 代码部分
-  ```
+  ```python
   import langsmith
 
   from langchain import chat_models, smith
@@ -150,11 +150,11 @@ Langsmith目前大致有如下功能（部分功能尚未完成实现）,这里�
   )
   ```
 
-- ```eval_config```函数支持一些额外的参数
-  - ```custom_evaluators``` 一些自定义评判模型
-  - ```input_key``` 数据集中问题所使用的key
-  - ```prediction_key``` chain输出结果中回答所在的key
-  - ```eva_llm``` 评判模型所使用到的LLM
+- `eval_config`函数支持一些额外的参数
+  - `custom_evaluators` 一些自定义评判模型
+  - `input_key` 数据集中问题所使用的key
+  - `prediction_key` chain输出结果中回答所在的key
+  - `eva_llm` 评判模型所使用到的LLM
 
 ### 有关评判模型的评判函数
 
@@ -172,5 +172,5 @@ Langsmith目前大致有如下功能（部分功能尚未完成实现）,这里�
 
 ### 自定义评判标准
 
-- 在数据集测试代码中的```eval_config.custom_evaluators```可以添加自己实现的评测函数。只需要继承相关类即可，具体内容可以在[Langsmith有关自定义Evalutors类的文档](https://docs.smith.langchain.com/evaluation/custom-evaluators)中查看
+- 在数据集测试代码中的`eval_config.custom_evaluators`可以添加自己实现的评测函数。只需要继承相关类即可，具体内容可以在[Langsmith有关自定义Evalutors类的文档](https://docs.smith.langchain.com/evaluation/custom-evaluators)中查看
 - 已知的实现自定义评测标准的方法，除了使用大模型去评判之外，还支持使用类似向量化的评判方法，即将测试输出和预期输出同时向量化映射到向量空间然后计算其向量距离来评判其相关性。

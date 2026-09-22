@@ -29,7 +29,7 @@ draft: false
     下载的时候选择第一个，第二个是测试版。**坑：在你点击下载之后会教你login一类的，你可以忽略它们找到下面一排英文“No thanks,just start my download”就可以正式下载**
 
     下载完成之后解压，将这个文件夹放到你想要的位置，列如E盘下。接着根据你选择的位置配置环境变量。如：
-    ```
+    ```text
     E:\mysql-8.0.13-winx64\bin
     ```
     [不会配置环境变量？？？](https://jingyan.baidu.com/article/00a07f3876cd0582d128dc55.html)
@@ -40,7 +40,7 @@ draft: false
 1. 进入myql的安装目录（就是你放加压后文件夹的地方）,找到里面的bin文件夹。
 
     在该文件夹下点击窗体左上方文件 -> 找到“打开powershell” -> 选择“以管理员身份打开powershell” -> 运行如下命令
-    ```
+    ```shell
     mysqld --initialize-insecure --console
     ```
 * --initialize-insecure参数是为了初始化一个没有初始密码的数据库
@@ -57,7 +57,7 @@ draft: false
 * **坑：初始化失败，可以尝试删除mysql安装文件夹下的data文件夹重试**
 
 * 你也可以使用这个命令初始化mysql
-    ```
+    ```shell
     mysqld --initialize --console
     ```
     这个命令在初始化过程中（如果成功）会输出一个随机密码，请务必记住他，否则你就得尝试重置密码了。
@@ -65,17 +65,17 @@ draft: false
 1. 安装服务
 
     在上一步执行没有报错之后，继续输入
-    ```
+    ```shell
     mysqld install
     ```
     安装mysql的系统服务，**再次重申，请确保你的命令行具有管理员权限！！！**
 
 1. 启动服务
-    ```
+    ```shell
     net start mysql
     ```
     **坑:提示启动失败请尝试删除mysql服务**
-        ```
+        ```shell
         mysqld remove
         ```
         并回到第一步重新初始化（这个过程中可能还需要删除mysql安装目录中的data文件夹）
@@ -83,7 +83,7 @@ draft: false
 1. 第一次启动数据库修改密码
     
     * 如果你是使用了--initialize-insecure参数初始化的数据库的话，那么数据库默认没有密码，直接在命令行输入
-        ```
+        ```shell
         mysql -u root -p
         ```
         出现输入密码提示后按下回车即可。
@@ -92,7 +92,7 @@ draft: false
     
 1. 修改密码
 
-    ```
+    ```sql
     ALTER user 'root'@'local' IDENTIFIED BY 'your_password你的密码';
     ```
     **坑:数据库命令大小写其实无所谓，可以都是小写。别忘了末尾的分号**
@@ -100,21 +100,21 @@ draft: false
 1. 数据库的基本操作:
 
     * 新建数据库
-    ```
+    ```sql
     create database 你要新建的数据库的名字;
     ```
     * 展示所有数据库
-    ```
+    ```sql
     show databases;
     ```
     * 切换数据库
-    ```
+    ```sql
     use 你要切换的数据库的名字
     ```
     **坑:这里有没有分号无所谓，其他数据库语句必须分号结尾**
     
     * 新建表
-    ```
+    ```sql
     create table 表名(key1 key_type,key2 key_type,key3 key_type);
     
     实例：
@@ -122,11 +122,11 @@ draft: false
     create table student(no VARCHAR(20,name VARCHAR(20),math INT,average DOUBLE);
     ```
     * 展示表中所有数据：
-    ```
+    ```sql
     select * from 表名;
     ```
     * 打印表内数据格式：
-    ```
+    ```sql
     desc 表名;
     ```
 
@@ -147,7 +147,7 @@ draft: false
     下载点击进去之后请点击“No thanks, just start my download.”开始下载
 
 1. 下载完成之后解压，打开解压后的文件夹，找到一个*.jar后缀的文件列如：
-    ```
+    ```text
     mysql-connector-java-8.0.13.jar
     ```
     将该文件复制到你的eclipse中的java项目里
@@ -161,23 +161,23 @@ draft: false
 
 1. 书本范例代码的问题
     *  新版的mysql数据库connector驱动包全名：
-    ```
+    ```text
     com.mysql.cj.jdbc.Driver
     ```
     * 数据库连接url格式：
-    ```
+    ```text
     jdbc:mysql://localhost:3306/数据库名称?serverTimezone=UTC
     ```
         
 * **坑:mysql8.0.x新版在java调用时要增加参数化serverTimezone=UTC，设置数据库时间为世界标准时间，否则会报以下错误**
 
-    ```
+    ```text
         Caused by: java.sql.SQLException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
     ```
 
     * 连接数据库出现access deny字样
 
-    ```
+    ```java
     DriverManger.getConnection(DB_URL,USER,PASS)
     ```
     DB_URL就是上面提到的url格式内容。
@@ -188,7 +188,7 @@ draft: false
 
 ### 请确保已经将mysqlconnector加入项目构建目录，参照[将jar文件加入你的java项目](#将jar文件加入你的java项目)
 
-```
+```java
 public class MySQLDemo {
  
     // JDBC 驱动名及数据库 URL

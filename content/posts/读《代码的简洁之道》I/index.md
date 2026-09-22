@@ -11,7 +11,7 @@ draft: false
 
 这应该是一篇类似读书笔记性质的文章。~~毕竟我不觉得我光滑的脑子在读完这些书籍后能记下东西，所以还是找个地方做做笔记吧，顺便写写博客。为了名正言顺的看书我真是花巨资买了个墨水屏阅读器，虽然感觉有很大的概率最后变成泡面盖子...~~
 
-《代码的简洁之道》这本书讲道理让我久仰大名很久了,因为自认为是一个十分有赛博洁癖的人：譬如我会无法忍受某些APP在我的设备内随地拉屎的习惯，以及无比厌恶不按照规范标准使用存储空间（譬如在linux上多数的config配置文件都应该存在于```/home/user/.config```目录下这种事情）,导致我经常性陷入重装系统，重新配置某些软件以妄图摆脱那些赛博垃圾。
+《代码的简洁之道》这本书讲道理让我久仰大名很久了,因为自认为是一个十分有赛博洁癖的人：譬如我会无法忍受某些APP在我的设备内随地拉屎的习惯，以及无比厌恶不按照规范标准使用存储空间（譬如在linux上多数的config配置文件都应该存在于`/home/user/.config`目录下这种事情）,导致我经常性陷入重装系统，重新配置某些软件以妄图摆脱那些赛博垃圾。
 
 当然这种习惯也一定程度上延伸到了日常的代码习惯中。譬如在工作中完全无法忍受别人代码里混乱的缩进（例如javascript中一会以4空格缩进，一会以2空格缩进，或者干脆没有缩进规范），亦或是某些十分随性的变量命名函数命名，又或者一个冗长到几千行的单一函数...在我看来所有的代码至少都应当遵循某种规范做到统一以方便阅读，同时统一且能言简意赅的简单明了。
 
@@ -24,7 +24,7 @@ draft: false
 * 名副其实
 
   变量，函数亦或者是类名应当直截了当的能揭示他为什么存在，做什么事情，应该做怎么用。如果一个变量需要用注释来描述补充其含义，那其就不算名副其实。
-  >例如表示“过去的天数”，不应当直接使用```int days;```之类的名称，而是应当使用```int daysSinceCreation;```
+  >例如表示“过去的天数”，不应当直接使用`int days;`之类的名称，而是应当使用`int daysSinceCreation;`
 
 * 避免误导
 
@@ -90,7 +90,7 @@ draft: false
 
   函数名应该言简意赅的表述函数详细的所有作用，不应当有“副作用”
 
-  ```
+  ```java
   public boolean checkPassword(String username, String password) {
     User user = UserGateway.findByName(username)
     if (user != User.NULL) {
@@ -105,13 +105,13 @@ draft: false
   }
   ```
 
-  例如如上的代码，“副作用”即对```Session.initialize()```的调用。函数名称“checkPassword”并没有暗示其会初始化会话。因此“checkPasswordAndInitializeSession”这函数名称或许更合适。
+  例如如上的代码，“副作用”即对`Session.initialize()`的调用。函数名称“checkPassword”并没有暗示其会初始化会话。因此“checkPasswordAndInitializeSession”这函数名称或许更合适。
 
 * 分隔指令与询问
 
-  ```public boolean set(String attribute, String value)```这个函数的作用是设置“attribute”属性为“value”，如果属性不存在则返回false,反之true. 这里就是一个“指令（order）和询问（check）的混用”，将这个函数重构成下面两个函数或许会更加合适：
+  `public boolean set(String attribute, String value)`这个函数的作用是设置“attribute”属性为“value”，如果属性不存在则返回false,反之true. 这里就是一个“指令（order）和询问（check）的混用”，将这个函数重构成下面两个函数或许会更加合适：
 
-  ```
+  ```java
   public boolean attributeExists(String attribute)
   public void setAttribute(String attribute, String value)
   ```
@@ -183,7 +183,7 @@ draft: false
 >* 由该对象创造的局部对象
 >* 全局变量（尽管现代编程中尽量避免使用）
 
-```
+```java
 class Engine {
     public FuelTank getFuelTank() {
         return fuelTank;
@@ -218,7 +218,7 @@ class Driver {
 
 下面是更正后更好的做法。
 
-```
+```java
 class FuelTank {
     public double getFuelLevel() {
         return fuelLevel;
@@ -316,7 +316,7 @@ class Driver {
 
   类的名称应当描述其权责，同时名称帮助判断界定类的长短，类名越混杂，含义越模糊则说明其权责不恰当。类或者模块有且仅有一条加以修改的理由。例如：
 
-  ```
+  ```java
   public class Version{
     public int getMajorVersionNumber()
     public int getMinorVersionNumber()
@@ -491,7 +491,7 @@ class Driver {
 * 朱雀努尔
 * 结构甚于约定：命名约定很好，但是却次于强制性的结构要求。
 * 封装条件：针对if/while的抽离封装，应当同步抽离出对应的上下文意图。
-* 避免否定条件：否定式比肯定式难以理解，尽量使用肯定式，例如```if (buffer.shouldCompact())```优于```if(!buffer.shouldNotCompact())```
+* 避免否定条件：否定式比肯定式难以理解，尽量使用肯定式，例如`if (buffer.shouldCompact())`优于`if(!buffer.shouldNotCompact())`
 * 函数只做一件事：单一性原则
 * 掩蔽时序耦合：不应当掩蔽时序耦合，排列函数参数，让其被调用的次序显而易见。
 * 别随意
@@ -504,7 +504,7 @@ class Driver {
 
 * 通过使用通配符避免过长的导入清单
 * 不要继承常量，而是常量作为静态导入
-* 常量 vs. 枚举： 金安陵使用枚举值而不是```public static final int```
+* 常量 vs. 枚举： 金安陵使用枚举值而不是`public static final int`
 
 ### 名称
 

@@ -114,7 +114,7 @@ http://localhost:8080/api/v1/docs/index.html
 
 当然也可以选择下载源码编译可执行文件，使用 Go 语言编译器编译项目得到可执行文件
 
-```
+```shell
 git clone https://github.com/zilliztech/milvus-migration.git
 
 cd milvus-migration
@@ -126,7 +126,7 @@ go get & go build
 
 在开始迁移之前，需要为迁移工具以及此次迁移操作创建一个对应的迁移配置文件 `migration.yaml`，文件可以被防止在数据源机器的任意目录下。
 
-```
+```sql
 dumper:
   worker:
     workMode: milvus2x

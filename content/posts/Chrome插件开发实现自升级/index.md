@@ -29,7 +29,7 @@ draft: false
 
   该字段为一个文件服务器上updates.xml文件地址(当然updates.xml文件可以自定义)
 
-```
+```json
 {
   "version": "0.1.1",
   "author": "wiz.ai",
@@ -42,7 +42,7 @@ draft: false
 ```
 
 如果是Plasmo项目, 可以在项目根目录中的package.json文件的manifest字段中添加. 这样Plasmo构建生成的插件将会自动将manifest字段中的参数嵌入到生成的插件文件manifest.json中
-```
+```json
 {
   "name": "ai-copilot-extension",
   "displayName": "Ai copilot extension",
@@ -59,7 +59,7 @@ draft: false
 
 ### 3. updates.xml文件内容
 
-```
+```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
   <app appid='ahfibeckkogjoccoiagmigcnnmgieblk'>
@@ -77,7 +77,7 @@ draft: false
 
   1. 首先使用Plasmo构建出标准插件,(使用原生Chrome v3编写的插件可以跳过这一步)
 
-```
+```shell
 plasmo build
 ```
 
@@ -92,7 +92,7 @@ plasmo build
 
   3. 也可以使用命令行构建crx文件
 
-```
+```shell
 chrome.exe --pack-extension=C:\myext --pack-extension-key=C:\myext.pem
 ```
 
@@ -117,7 +117,7 @@ chrome.exe --pack-extension=C:\myext --pack-extension-key=C:\myext.pem
 在windows中如果想要使用非chrome应用商店托管的扩展程序, 需要采用Chrome企业版策略来实现加载非Chrome应用商店的扩展程序. 但是也是有一些黑科技方案可以绕过这一限制. 即修改windows注册表强制chrome允许特定ID的插件
 
 - 使用如下注册表命令, 复制文本保存为.reg文件在windows下运行即可. 注意替换"lkbebcjgcmobigpeffafkodonchffocl"为正确的chrome 插件ID
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist]
@@ -127,7 +127,7 @@ Windows Registry Editor Version 5.00
 当注册表成功修改之后, 重启安装了crx文件的chrome浏览器即可发现插件可以正常启用.当然chrome浏览器本身会多一些提示文字.
 
 - 想要恢复注册表可以使用如下的代码保存为.reg文件运行
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist]

@@ -11,7 +11,7 @@ draft: false
     * 爬取一个位于国外的网站，所以需要使用proxy，这里使用socks5代理
     * 网站是https，所以需要ssl
 * 就是在这的需求之下，代码持续爆出如下错误：
-    ```
+    ```text
     requests.exceptions.SSLError: SOCKSHTTPSConnectionPool(host='www.xxx.org', port=443): Max retries exceeded with url: /file/ (Caused by SSLError(SSLError("bad handshake: SysCallError(-1, 'Unexpected EOF')")))
 
     requests.exceptions.ConnectionError: SOCKSHTTPSConnectionPool(host='www.xxx.org', port=443): Max retries exceeded with url: /file/ (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x0000021C585105C0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
@@ -43,7 +43,7 @@ draft: false
 
 * 新版本的openssl将有漏洞的cipher禁用了，使用TSL1.0一下的cipher都无法匹配。这在新版本的requests中也是如此。
 解决方法有人说是降低requests版本，还有一个方法是在代理服务器地址写成如下格式
-```
+```python
 # socks5h://127.0.0.1:1080
 
 r=requests.get(URL,proxies={"https":"socks5h://127.0.0.1:1080"})
@@ -52,11 +52,11 @@ r=requests.get(URL,proxies={"https":"socks5h://127.0.0.1:1080"})
 ~~对就是加了个h~~
 
 * 加h的含义：
-    ```
+    ```text
     socks5h:// socks4a://
     ```
     表示主机名由socks服务器解析;
-    ```
+    ```text
     socks5:// socks4://
     ```
     表示主机名在本地解析

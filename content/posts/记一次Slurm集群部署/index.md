@@ -30,7 +30,7 @@ draft: false
 ### GPU等相关配套软件调试
 由于本集群将多数用于人工智能深度学习相关领域，因而会使用到GPU计算。这里后面会贴一个链接详细讲述GPU配置。
 
-```
+```text
 TODO
 ```
 
@@ -45,15 +45,15 @@ TODO
 集群部署工作中必定有一个问题是要确保集群内所有设备节点时间一致性，保证服务器时间，时区准确。此处以ubuntu中的操作为例子（后续所有操作例子均为在ubuntu22.04 LTS版本下）
 
 1. 在所有服务器上安装ntpdate服务
-  ```
+  ```shell
   sudo apt-get install ntpdate
   ```
 2. 时间校准 
-  ```
+  ```shell
   sudo ntpkdate cn.pool.ntp.org
   ```
 3. 更新硬件时间
-  ```
+  ```shell
   sudo hwclock --systohc
   ```
   
@@ -63,12 +63,12 @@ TODO
 **注意： 不仅仅是用户名和用户组名的一致性，所有集群服务器上的所使用到的用户必须保证用户名，用户ID,组名，组ID一致**
 
 1. munge 集群验证模块
-  ```
+  ```shell
   sudo groupadd -g 1888 munge
   sudo useradd -r -u 1888 -g 1888 -s /usr/sbin/nologin munge
   ```
 2. slurm 部分slurm软件运行所需要的账户
-  ```
+  ```shell
   sudo groupadd -g 1000 slurm
   sudo useradd -r -u 1000 -g 1000 -s /usr/sbin/nologin slurm
   ```
@@ -79,25 +79,25 @@ TODO
 Slurm集群任务记录，账户记录等可以通过数据库存储记录，方便用户查看管理（当然数据库并不是必须的组件，slurm可以不使用数据库进行部署，即不选择安装slurmdbd）
 
 1. 使用ubuntu软件源中的mysql安装
-  ```
+  ```shell
   sudo apt instal mysql-server
   ```
 2. 启动mysql服务
-  ```
+  ```shell
   sudo systemctl start mysql #启动mysql.service
   sudo systemctl enable mysql#设置mysql.service开机自启
   ```
 3. 配置mysql数据库账户密码
-  ```
+  ```sql
   ALTER USER 'root'@'localhost' IDENTIFIED BY '123456'  # 配置数据库用户密码
   ```
   简单一点可以直接使用root用户，当然如果出于安全考虑，可以使用专用的mysql用户密码，或者使用docker部署mysql服务，确保环境隔离。
 
 4. 配置mysql数据库
-  配置mysql参数确保slurmdbd服务不会出现```error: Database settings not recommended values: innodb_buffer_pool_size innodb_lock_wait_timeout```
+  配置mysql参数确保slurmdbd服务不会出现`error: Database settings not recommended values: innodb_buffer_pool_size innodb_lock_wait_timeout`
 
   编辑/etc/my.cnf
-  ```
+  ```ini
   [mysqld]
   innodb_buffer_pool_size=1024M
   innodb_log_file_size=64M
@@ -105,7 +105,7 @@ Slurm集群任务记录，账户记录等可以通过数据库存储记录，方
   ```  
 
 5. 重启mysql服务
-  ```
+  ```shell
   sudo systemctl restart mysql
   ```
 
@@ -113,17 +113,17 @@ Slurm集群任务记录，账户记录等可以通过数据库存储记录，方
 munge，slurm的相关组建等软件在ubuntu的软件源中有，但是存在一些版本问题（例如在ubuntu22中slurm的版本就比较落后），所以本文多数使用源码部署的方式。
 
 1. 安装ubuntu编译工具
-  ```
+  ```shell
   sudo apt instal build-essential -y
   ```
 
 2. 安装munge依赖
-  ```
+  ```shell
   sudo apt install openssl bzip2 pkgconf libssl-dev -y
   ```
 
 3. 下载munge源码包
-  ```
+  ```shell
   git clone https://github.com/dun/munge && cd munge
   ```
   
@@ -134,18 +134,18 @@ munge，slurm的相关组建等软件在ubuntu的软件源中有，但是存在�
 
 5. 生成configure
   安装bootstrap所需依赖
-  ```
+  ```shell
   sudo apt install autoconf automake libtool -y
   ```
 
   执行bootstrap
-  ```
+  ```shell
   ./bootstrap
   ```
   如果是直接下载的官方源码包可以跳过本步骤直接到configure配置部分.
 
 6. configure安装参数
-  ```
+  ```shell
   ./configure \
      --prefix=/usr \
      --sysconfdir=/etc \
@@ -154,7 +154,7 @@ munge，slurm的相关组建等软件在ubuntu的软件源中有，但是存在�
   ```
   
 7. 执行安装
-  ```
+  ```shell
   make
   make check
   sudo make install
@@ -162,7 +162,7 @@ munge，slurm的相关组建等软件在ubuntu的软件源中有，但是存在�
 
 8. 启动munge服务
   
-  ```
+  ```shell
   sudo systemctl start munge
   sudo systemctl enable munge
   sudo systemctl status munge
@@ -170,7 +170,7 @@ munge，slurm的相关组建等软件在ubuntu的软件源中有，但是存在�
 
 9.  修改目录权限
 修改权限为munge管理。munge:munge (如果是使用软件源安装的munge用户会自动创建,但是提前手动创建可以确保munge用户id以及组id一致性）
-```
+```shell
 chown -R munge: /etc/munge/
 chmod 400 /etc/munge/munge.key
 chown -R munge: /var/lib/munge
@@ -178,12 +178,12 @@ chown -R munge: /var/run/munge # 可能不存在
 chown -R munge: /var/log/munge
 ```
 10. 生成munge key
-  ```
+  ```shell
   /usr/sbin/mungekey -f # -f 参数  用于覆盖默认生成的key
   ```
 
 11.  测试是否成功运行
-```
+```shell
 $ munge -n | unmunge | grep STATUS
 STATUS:          Success (0)
 ```
@@ -198,7 +198,7 @@ STATUS:          Success (0)
 
   例如在本文的例子中，将用到一个主节点以及三个从节点，分别以master,work1,work2,work3命名，都在192.168.1.1/24网段下，因此hosts文件中的内容大致如下:
 
-  ```
+  ```text
   192.168.1.2 master
   192.168.1.3 work1
   192.168.1.4 work2
@@ -207,12 +207,12 @@ STATUS:          Success (0)
 
 2. 配置hostname
   配置完hosts文件后需要将对应节点是hostname也修改为对应的名字，例如master节点的/etc/hostname文件
-  ```
+  ```text
   master
   ```
 
   work1节点/etc/hostname
-  ```
+  ```text
   work1
   ```
  
@@ -234,7 +234,7 @@ slurm中所罗列的几个服务其实可以都分别安装在不同的设备上
 同时前面说过，ubuntu软件源中虽然存在slurm,但是其软件版本不一定是需要的版本，不一定是最新版，因此使用源码编译的方式安装slurm.
 
 #### 下载slurm源码压缩包
-```
+```shell
 wget https://download.schedmd.com/slurm/slurm-23.02.3.tar.bz2
 
 # 解压
@@ -245,7 +245,7 @@ cd slurm*
 ```
 
 #### configure安装配置
-```
+```shell
 ./configure
       --prefix=/usr
       --sysconfdir=/etc
@@ -270,10 +270,10 @@ slurm 官方提供了一个web工具用以生成web配置文件: [https://slurm.
 接下来会罗列几个重要的需要修改的参数，以及后续会提供所有参数其对应的作用.
 
 修改配置文件目录所有者权限
-```
+```shell
 sudo chown -R slurm:slurm /etc/slurm
 ```
-```
+```ini
 # Cluster Name：集群名
  ClusterName=Cluster # 集群名，任意英文和数字名字
 
@@ -467,7 +467,7 @@ sudo chown -R slurm:slurm /etc/slurm
 
 gres.conf也尽量也应当所有的集群节点也都配置相关参数（~~存疑~~）
 
-```
+```ini
 # AutoDetect=nvml
 Name=gpu Type=3090 File=/dev/nvidia[0-4]
 #设置资源的名称Name是gpu，类型Type为3090，名称与类型可以任意取，但需要与其它方面配置对应，File=/dev/nvidia[0-1]指明了使用的GPU设备。
@@ -475,7 +475,7 @@ Name=gpu Type=3090 File=/dev/nvidia[0-4]
 
 #### 配置slurmdbd
 
-```
+```ini
 # Authentication info   一些munge的认证信息
 AuthType=auth/munge
 AuthInfo=/var/run/munge/munge.socket.2
@@ -499,7 +499,7 @@ StorageLoc=slurm_acct_db
 
 
 #### 启动slurm服务master节点
-```
+```shell
 sudo systemctl start slurmd
 sudo systemctl start slurmctld
 sudo systemctl start slurmdbd
@@ -514,7 +514,7 @@ sudo systemctl enable slurmdbd # 开机自启
 ```
 
 #### 启动slurm从节点
-```
+```shell
 sudo systemctl start slurmd
 sudo systemctl enable slurmd
 ```
@@ -525,7 +525,7 @@ sharding是slurm23.04最新推出的基于nvidia 企业级GPU（例如A100）等
 **该功能仅支持在企业级GPU以及slurm23.04版本之后**
 
 ### 配置/etc/gres.conf
-```
+```ini
 # Example 1 of gres.conf
 # Configure four GPUs (with Sharding)
 # AutoDetect=nvml
@@ -535,7 +535,7 @@ Name=shard Count=32
 ```
 
 上述配合文件也可以写成如下格式,二者含义等价
-```
+```ini
 Name=gpu Type=A100 File=/dev/nvidia0
 Name=gpu Type=A100 File=/dev/nvidia1
 Name=gpu Type=A100 File=/dev/nvidia2
@@ -548,7 +548,7 @@ Name=shard Count=8    File=/dev/nvidia3
 
 #### 配置sharding
 修改slurm.conf配置文件中需要分享GPU资源的节点参数
-```
+```ini
 AccountingStorageTRES=gres/gpu,gres/shard
 GresTypes=gpu,shard
 NodeName=master Gres=gpu:4,shard:32
@@ -559,7 +559,7 @@ NodeName=master Gres=gpu:4,shard:32
 #### 将配置文件分发到所有主从节点
 **注意：一定保证所有主从节点的slurm.conf配置文件一致性，以及gres.conf的一致性**
 #### 重启所有主从节点的slurm相关服务
-```
+```shell
 sudo systemctl restart slurmd
 sudo systemctl restart slurmctld
 ```

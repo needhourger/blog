@@ -21,7 +21,7 @@ draft: false
 保活进程解析,我们将进程检索结果中这一大串异常的东西拿出来看看。
 
 ![](./1.PNG)
-```
+```shell
  #!/bin/bash
  #
  # 这里一处很狡猾的设计，程序的运行目录在/var/tmp/.logs/.xmr文件中，但这个文件在病毒成功启动后就会被删除
@@ -126,7 +126,7 @@ draft: false
 
     于是只可以使用笨办法，根据其中的异常程序名称updat3做一定范围的全盘搜索
 
-    ``` find / -path "/remote-home" -prune -o -name "updat3" -print```
+    ` find / -path "/remote-home" -prune -o -name "updat3" -print`
 
     ![](./2.PNG)
 

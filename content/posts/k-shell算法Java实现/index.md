@@ -33,15 +33,15 @@ updated: 2018-12-19T17:02:28+08:00
 
 * 因为是使用的java语言。这里用一个hashmap来存储图。hashmap中key，value分别为string，以及hashset。
 key值中存储图节点，对应value（hashset型）存储与该节点有连接的节点。
-    ```
+    ```java
     HashMap<String,HashSet<String>> map=new HashMap<String,HashSet<String>>();
     ```
 * 用另一个hashmap来存储对应k值的网络层,key值用来存放k值，value的hashset里面存放从网络中剔除的节点。
-    ```
+    ```java
     HashMap<Integer,HashSet<String>> kmap=new HashMap<Integer,HashSet<String>>();
     ```
 * 首先第一步从文件中读取数据,这里操作时按行读取。[java文件操作](https://blog.csdn.net/brushli/article/details/12356695)
-    ```
+    ```java
     private static void loadfile(String filename){
         map.clear();                                                //将图清空重置
         try {
@@ -89,7 +89,7 @@ key值中存储图节点，对应value（hashset型）存储与该节点有连�
     ```
 
 * 为了方便查看图的变化这里写了一个map的打印函数：
-    ```
+    ```java
     private static void mapprint(){
         Iterator iter=map.entrySet().iterator();
         while (iter.hasNext()){
@@ -99,7 +99,7 @@ key值中存储图节点，对应value（hashset型）存储与该节点有连�
     }
     ```
 * 以及存储对应k值剥离出来的网络节点的打印函数
-    ```
+    ```java
     private static void printkmap(){
         Iterator iter=kmap.entrySet().iterator();
         while(iter.hasNext()){
@@ -114,7 +114,7 @@ key值中存储图节点，对应value（hashset型）存储与该节点有连�
     
     [Hashmap的遍历删除操作](https://www.cnblogs.com/zhangnf/p/HashMap.html)
     
-    ```
+    ```java
     private static void kshell_func(){
         int k=1;
         kmap.clear();
@@ -159,7 +159,7 @@ key值中存储图节点，对应value（hashset型）存储与该节点有连�
 
 [结果文件](result.txt)
 
-```
+```java
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;

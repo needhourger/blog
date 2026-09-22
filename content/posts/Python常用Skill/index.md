@@ -17,7 +17,7 @@ draft: false
 ### 获取脚本目录
 
 * 脚本运行时相对路径时基于命令行的路径.这样直接在脚本里使用相对路径会出现问题.我们可以使用如下方法获得脚本所在的绝对路径,以及脚本本身的文件名.
-    ```
+    ```python
     import os
     WORK_PATH,FILE_NAME=os.path.split(os.path.abspath(__file__))
     ```
@@ -27,7 +27,7 @@ draft: false
 ---
 ### 获取Windows用户目录
 * 有时我们需要获取用户默认的下载目录,或者是文档目录等等
-    ```
+    ```python
     import os
     USER_PATH=os.path.expanduser("~")
     DOWNLOAD_PATH=ps.path.join(os.path.expanduser("~"),"Download")
@@ -42,7 +42,7 @@ draft: false
 
 * #### *args
     * *args用来表示函数接受可变长度的 __非关键字__ 参数作为函数的输入
-        ```
+        ```python
         def test(normal_arg, *args):
             print("first normal arg:"+normal_arg)
 
@@ -53,7 +53,7 @@ draft: false
         ```
 
     * 样例输出
-        ```
+        ```text
         first normal arg:normal
         1 arg is a
         2 arg is b
@@ -63,7 +63,7 @@ draft: false
 
 * #### **kwargs
     * **kwargs表示函数接受可变长度的关键字参数字典作为参数，即可以简单的理解为传入的是字典参数
-        ```
+        ```python
         def test(**kwargs):
         if kwargs is not None:
             for key, value in kwargs.iteritems():
@@ -74,14 +74,14 @@ draft: false
         test(name="python", value="5")
         ```
     * 样例输出
-        ```
+        ```ini
         name = python
         value = 5
         ```
 
 * #### What's more
     * 我们也可以使用这两个参数来调用一般参数格式的函数
-        ```
+        ```python
         def func(arg1,arg2,arg3):
             print("arg1: " + arg1)
             print("arg2: " + arg2)
@@ -97,7 +97,7 @@ draft: false
 
     * 样例输出:
 
-        ```
+        ```yaml
         arg1: python
         arg2: 2
         arg3: 3

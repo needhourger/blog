@@ -27,7 +27,7 @@ draft: false
 本文中假定所有的父程序即parent.exe；子程序为child.exe
 
 * 子程序源码
-    ```
+    ```cpp
     #include<iostream>
     using namespace std;
 
@@ -45,7 +45,7 @@ draft: false
 
 * 函数原型
 
-    ```
+    ```c
     int system(const char* command)
     ```
 
@@ -62,7 +62,7 @@ draft: false
     这里使用的是默认的命令行将所有的命令执行的输出结果重定向到result.txt中，之后我们只需要使用文件操作读取result.txt中的内容即可。
     
     **坑：** 命令行重定向输出到文件采用的是末尾追加的打开方式，为了保证程序每次执行结果不受上次执行结果的干扰，建议每次在读取完result.txt中的内容之后将文件清空。
-    ```
+    ```cpp
     #include<iostream>
     #include<cstdlib>
     #include<fstream>
@@ -82,7 +82,7 @@ draft: false
     ```
 
 * 父程序输出样例
-    ```
+    ```text
     4
     .\child.exe
     argv1
@@ -95,7 +95,7 @@ draft: false
 ## WinExec()
 * Windows API 函数[（个人建议微软爸爸的函数还是看微软爸爸的文档最合适）](https://docs.microsoft.com/en-us/windows/desktop/api/winbase/nf-winbase-winexec)
 * 函数原型：
-    ```
+    ```c
     UINT WinExec(
         LPCSTR lpCmdLine,   //你所要执行的命令
         UINT   uCmdShow     //显示模式，设置不同的参数可以实现控制台隐藏等等
@@ -107,7 +107,7 @@ draft: false
 
     总的来说这个命令和system类似，只是多了一个显示模式的参数，可以做到隐藏控制台等等一系列的操作（具体参见微软文档）获取回显的方式依然是使用输出重定向到文本文件并读取的方式。注意点同上，因为使用的是文末追加的方式，最好每次读取完之后清空输出的文本内容。
 
-    ```
+    ```cpp
     #include<iostream>
     #include<windows.h> //WinExec函数头文件
     #include<fstream>
@@ -128,7 +128,7 @@ draft: false
     }
     ```
 * 父程序输出样例
-    ```
+    ```text
     5
     .\child.exe
     argv1
@@ -142,7 +142,7 @@ draft: false
 * Window API函数，[详情文档参见微软官方文档](https://docs.microsoft.com/en-us/windows/desktop/api/shellapi/nf-shellapi-shellexecutea)
     
 * 函数原型
-    ```
+    ```c
     HINSTANCE ShellExecuteA(
         HWND   hwnd,        //程序的窗口句柄，可以使用GetDesktopWindow()函数获取，也可以填写NULL
         LPCSTR lpOperation, //你所要执行的操作，Shellexecute不光是可以运行外部程序那么简单，它还可以操作文件等等，具体取决于这个参数的设置
@@ -159,7 +159,7 @@ draft: false
 * 调用子程序
     ### **但并不能获取回显！！！** 
     网上某些论坛博客里有人用这个函数调用外部exe并使用将输出重定向到文本文件的方式获取输出的返回内容，但是本人实践并未成功。如有大佬知道原因欢迎指正！
-    ```
+    ```cpp
     #include<iostream>
     #include<windows.h>     //WinExec函数头文件
     using namespace std;
@@ -183,7 +183,7 @@ draft: false
     * 这个函数是ShellExecute的扩展函数
     * 可以实现阻塞调用子程序
 * 函数原型
-    ```
+    ```c
     BOOL ShellExecuteExW(
         SHELLEXECUTEINFOW *pExecInfo    //指向SHELLEXECUTEINFO结构体的指针，该结构体中包含你所要调用的程序的相关信息
     );
@@ -193,7 +193,7 @@ draft: false
 * 调用子程序示例
 
     **同样不可以使用重定向输出到文件的方式获取程序执行输出**
-    ```
+    ```cpp
     #include<iostream>
     #include<windows.h>     //shellapi.h你也可以使用这个头文件，shellapi.h包含在windows.h这个头文件内。
     using namespace std;
@@ -224,7 +224,7 @@ draft: false
     
     **本文重头戏，使用函数CreatePipe创建匿名管道将子程序输出重定向。（这里仅仅重定向输出，微软官方样例是输入输出都重定向了）**[微软官方样例](https://docs.microsoft.com/en-us/windows/desktop/procthread/creating-a-child-process-with-redirected-input-and-output)
 * 函数原型
-    ```
+    ```c
     BOOL WINAPI CreatePipe(
         _Out_    PHANDLE               hReadPipe,       //接收管道读取句柄的变量指针
         _Out_    PHANDLE               hWritePipe,      //接收管道写句柄的变量指正
@@ -235,7 +235,7 @@ draft: false
     ```
     * 返回值：如果函数成功，则返回值为非零。
 
-    ```
+    ```c
     BOOL CreateProcessA(
         LPCSTR                lpApplicationName,    //子程序的名称或者完整路径
         LPSTR                 lpCommandLine,        //子程序的完整路径加上命令行参数全部，如果你设置了上一个参数，这个参数只需要传入命令行参数即可。只有当上一个参数为空的时候你才需要填写子程序完整路径
@@ -256,7 +256,7 @@ draft: false
 
 * 使用匿名管道重定向外部exe输出示例：
 
-```
+```cpp
 #include<iostream>
 #include<windows.h>
 using namespace std;
@@ -310,7 +310,7 @@ int main(){
 }
 ```
 * 程序运行结果
-```
+```text
 3
 argv1
 argv2

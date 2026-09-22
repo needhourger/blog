@@ -22,7 +22,7 @@ draft: false
 
 * ### 如果你看到如下报错
     
-    ```
+    ```text
     The MySQL server is running with the --secure-file-priv option so it cannot execute...
     ```
 
@@ -34,7 +34,7 @@ draft: false
 
     **修改文件最好备份my.ini因为如果这个文件内容错误mysql将无法启动**
 
-    ```
+    ```ini
     [mysqld]
     secure-file-priv="D:/CoderLife/testMySQL" 
     # 这个路径你自己可以自定义
@@ -42,7 +42,7 @@ draft: false
     * 如果你的mysql安装目录下不存在这个文件，你可以尝试去C:/Program Data/MySQL/MySQL Server类似路径下寻找（Program Data文件夹是一个隐藏文件夹，请勾选显示隐藏文件以及文件夹）
     * 如果还是无法找到可以使用搜索文件功能
     * 如果完全没有这个文件(~~作者我帮忙配置mysql的那一部分人应该是完全没有这个文件的~~)，则在mysql server的安装路径下新建my.ini,内部基础内容如下
-    ```
+    ```ini
     [mysqld]
     # 这里指定你想要设置的路径，必须保证这个路径存在
     secure-file-priv="E:/test" 
@@ -58,14 +58,14 @@ draft: false
 1. 接下来重启mysql服务
     
     在具有**管理员权限**的命令行下输入如下命令
-    ```
+    ```shell
     net stop mysql
     net start mysql
     ```
 
 1. 接下来进入数据库，输入如下命令
 
-    ```
+    ```sql
     show variables like "%secure%"
     ```
     如果出现的回显中包含你之前设置的路径，则表示路径修改成功过
@@ -83,7 +83,7 @@ draft: false
     依旧是打开my.ini文件，修改文件内容（添加或者查找修改，依据你是创建的文件还是原来就有my.ini文件自行把握）
 
     修改如下三处（如果某个[xxx]标签下没有则添加）
-    ```
+    ```ini
     [client]
     default-character-set=utf8
     [mysql]
@@ -97,14 +97,14 @@ draft: false
     具有管理员权限的命令行！
     具有管理员权限的命令行！
     具有管理员权限的命令行！
-    ```
+    ```shell
     net stop mysql
     net start mysql
     ```
 
 1. 进入数据库查看是否修改成功
     
-    ```
+    ```sql
      mysql> SHOW VARIABLES LIKE 'character%';
     +--------------------------+---------------------------------------------------------+
     | Variable_name            | Value                                                   |
@@ -144,18 +144,18 @@ draft: false
 * ### 导入命令问题
 
     仅仅使用
-    ```
+    ```sql
     LOAD DATA INFILE "file_name" INTO TABLE tbl_name
     ```
     是无法完成插入操作的，大概率会出现如下报错
-    ```
+    ```text
     Data truncated for column xxx at row 1
     ```
     因为我们需要指定你准备导入的csv文件格式
 
     * 完整命令
 
-    ```
+    ```sql
     LOAD DATA INFILE "D:/CoderLife/testMySQL/test.csv" -- 指定csv文件路径，路径必须是我们一开始设置的
     INTO TABLE nation -- 指定你要插入的表格
     FIELDS TERMINATED BY ',' -- 指定csv文件是以逗号为分隔符
@@ -174,7 +174,7 @@ draft: false
 * ### 报错“ Duplicate entry for key ...”
 
     这个报错是因为你之前的表内有数据导致了主键冲突，方法删除旧的表内的内容。
-    ```
+    ```sql
     delete from table_name
     ```
 
@@ -182,7 +182,7 @@ draft: false
 
     这个报错是因为csv内的数据并没有包含表的所有键值，那么这就需要在我们导入数据的时候指定导入数据数据那几列
     就是在之前上面的导入代码最后加上一个括号，里面按照csv数据列的顺序依次标注其键名
-    ```
+    ```sql
     LOAD DATA INFILE "D:/CoderLife/testMySQL/test.csv" -- 指定csv文件路径，路径必须是我们一开始设置的
     INTO TABLE nation -- 指定你要插入的表格
     FIELDS TERMINATED BY ',' -- 指定csv文件是以逗号为分隔符
@@ -194,7 +194,7 @@ draft: false
 * ### 报错“ Incorrect integer value: xxx”
     
     这个报错是因为csv文件第一行存在着表头数据，我们可以数用如下命令忽略第一行
-    ```
+    ```sql
     LOAD DATA INFILE "D:/CoderLife/testMySQL/test.csv" -- 指定csv文件路径，路径必须是我们一开始设置的
     INTO TABLE nation -- 指定你要插入的表格
     FIELDS TERMINATED BY ',' -- 指定csv文件是以逗号为分隔符
@@ -207,7 +207,7 @@ draft: false
 * ### 关于字符编码问题的补充
     
     其实可以通过指定导入的csv文件编码来保证字符编码问题，使用如下命令
-    ```
+    ```sql
     LOAD DATA INFILE "D:/CoderLife/testMySQL/test.csv" -- 指定csv文件路径，路径必须是我们一开始设置的
     INTO TABLE nation CHARACTER SET utf8-- 指定你要插入的表格
     FIELDS TERMINATED BY ',' -- 指定csv文件是以逗号为分隔符

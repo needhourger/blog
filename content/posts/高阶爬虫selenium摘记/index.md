@@ -28,12 +28,12 @@ webdriver:chromedriver
 platform:Windows 10
 
 1. 首先安装selenium包
-    ```
+    ```shell
     pip install selenium
     ```
 
 2. 在命令行中尝试引入selenium库,如果不报错证明安装成功
-   ```
+   ```python
    import selenium
    ```
 
@@ -48,7 +48,7 @@ platform:Windows 10
 
         当然有高阶操作可以装载指定目录中的webdriver,以及可以指定浏览器可执行文件目录等,这部分操作参见自定义webdriver以及浏览器可执行文件
 4. 让我们开始第一个例子打开百度首页
-   ```
+   ```python
    #-*- coding:utf-8 -*-
    # 从selenium包中导入webdriver
    from selenium import webdriver   
@@ -68,7 +68,7 @@ platform:Windows 10
 ~~其实也就是一系列踩坑行为~~
 
 1. ### 自定义webdriver以及浏览器可执行文件
-    ```
+    ```python
     #-*- coding:utf-8 -*-
     from selenium import webdirver
     
@@ -91,7 +91,7 @@ platform:Windows 10
    
    * 普通参数
    
-        ```
+        ```python
         #-*- coding:utf-8 -*-
         from selenium import webdirver
         
@@ -110,7 +110,7 @@ platform:Windows 10
         chrome=webdriver.Chrome(chrome_options=options)
         ```
     * 实验性参数
-        ```
+        ```json
         appState = { 
             "recentDestinations": [ { 
                 "id": "Save as PDF", 
@@ -130,7 +130,7 @@ platform:Windows 10
     * [更多启动参数设置参见文档](https://peter.sh/experiments/chromium-command-line-switches/)
 
 1. 执行JavaScript脚本
-    ```
+    ```python
     #-*- coding:utf-8 -*-
     from selenium import webdirver
 

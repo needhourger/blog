@@ -20,7 +20,7 @@ draft: false
 ## 建立站点地图
 
 1. 在本地博客文件夹路径内运行代码如下，安装站点地图生成插件:
-    ```
+    ```shell
     npm install hexo-generator-sitemap --save
     npm install hexo-generator-baidu-sitemap --save
     ```
@@ -31,7 +31,7 @@ draft: false
 
 1. 在source文件夹下新建robots.txt文件 [什么是robots.txt](https://baike.baidu.com/item/robot.txt)
 
-    ```
+    ```yaml
     User-agent: *
     Sitemap: http://aleonchen.com/sitemap.xml
     Sitemap: http://aleonchen.com/baidusitemap.xml
@@ -39,7 +39,7 @@ draft: false
 
 1. 重新构架并发布你的网站
 
-    ```
+    ```shell
     hexo g -d
     ```
 ## 向搜索引擎注册你的网站
@@ -58,7 +58,7 @@ draft: false
  直接这样加入source里构建并发布会会导致在访问这个html文件的时候被hexo本身重定向。如果你出现了重定向问题，请参照如下方式:
 
 在source文件夹下搜索引擎提供的html首部加入:
-```
+```yaml
 layout: false
 ---
 ```

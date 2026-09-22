@@ -74,14 +74,14 @@ LangGraph目前有的Features：
 
 ### Install
 
-```
+```shell
 pip install langchain-anthropic
 ```
 
 ### Example
 
 以下是LangGraph中构建一个能够调用搜索引擎检索的Agentic RAG例子
-```
+```python
 from typing import Annotated, Literal, TypedDict
 
 from langchain_core.messages import HumanMessage
