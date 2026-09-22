@@ -1,6 +1,6 @@
 ---
 title: word2vector词向量训练
-published: 2019-10-21T14:08:55+08:00
+published: 2019-03-13T10:26:22+08:00
 tags: [AI, LLM]
 category: CODE
 draft: false
