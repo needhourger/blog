@@ -10,9 +10,9 @@ links:
   - name: GitHub
     icon: fa6-brands:github
     url: https://github.com/needhourger
-  - name: Email
-    icon: fa6-solid:envelope
-    url: mailto:chainyuuki@gmail.com
   - name: Instagram
     icon: fa6-brands:instagram
     url: https://www.instagram.com/yuukiricc
+  - name: Email
+    icon: fa6-solid:envelope
+    url: mailto:chainyuuki@gmail.com

@@ -1,0 +1,9 @@
+lastUpdated:
+  enable: true
+
+discovery:
+  enable: true
+
+share:
+  enable: true
+  includeCover: true
