@@ -1,5 +1,6 @@
 links:
   - preset: Home
+  - preset: Tags
   - preset: Archive
-  - preset: Friends
   - preset: About
+  - preset: Friends

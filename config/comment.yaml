@@ -1,0 +1,18 @@
+enable: true
+provider: giscus
+lazy: true
+giscus:
+  repo: needhourger/needhourger.github.io
+  repoId: R_kgDOGgT-eg
+  category: General
+  categoryId: DIC_kwDOGgT-es4DGJoq
+  mapping: pathname
+  strict: false
+  reactionsEnabled: true
+  emitMetadata: false
+  inputPosition: bottom
+  theme:
+    light: light
+    dark: dark
+  lang: auto
+  scriptUrl: https://giscus.app/client.js
