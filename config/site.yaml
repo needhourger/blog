@@ -16,6 +16,12 @@ texture:
   enable: true
   defaultPreset: sakura
 banner:
+  src:
+    desktop:
+      - assets/images/banner/desktop/6oxwpx.jpg
+      - assets/images/banner/desktop/6dv6xq.jpg
+    mobile:
+      - assets/images/banner/mobile/8o77w2.jpg
   homeText:
     enable: true
     title: Memorial Sea
