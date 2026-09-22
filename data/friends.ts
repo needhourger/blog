@@ -24,6 +24,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://mizuki.mysqil.com",
 		tags: ["Blog", "Theme"],
 	}, */
+  {
+		id: 1,
+		title: "Hanssen0",
+		imgurl: "",
+		desc: "",
+		siteurl: "https://blog.hanssen0.com/",
+		tags: ["Friends"],
+	}
 ];
 
 // 获取所有友情链接数据（稳定顺序，测试可复现）
