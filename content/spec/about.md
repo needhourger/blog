@@ -21,6 +21,12 @@ Ciel 是法语中天空的意思, 中文翻译可以叫夏尔 (例如黑执事�
 - Github: [needhourger](https://github.com/needhourger)
 - E-mail: [ciel.chan000@gmail.com](mailto://ciel.chan000@gmail.com)
 
+## Misc
+
+AI 大模型时代, 感觉写技术型博客的价值和存在意义变得越来越模糊. 
+
+所以以后的这里可能更加多的是一些个人的思考碎碎念. 茫茫互联网的大海上, 很庆幸有人光顾这片无人在意的小岛上的海滩.
+
 <!-- Todo: Add photo
 ::: grid{columns="3" aspect="16/9" fit="cover"}
 :::
