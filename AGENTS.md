@@ -14,7 +14,7 @@
   - `category` 沿用正常内容分类（技术类 `CODE`、生活类 `LIFE`）；
   - 覆写版权作者字段：`license.author` 设为 `Yuuki & <当前Agent名>`（如 `Yuuki & Antigravity`、`Yuuki & Codex`、`Yuuki & Claude`）。
 - **标签克制与复用**：除 `AIGC` 外通常保持 2~3 个核心主题标签，优先复用 `blog/content/posts/` 既有标签（如 `Linux`、`Python`、`数据库`、`AI`、`LLM`、`K8S`、`Security` 等），避免同义词碎片化。
-- **目录与路由命名**：当前站点关闭了全局自定义 permalink，目录名直接决定默认 URL（`/posts/<文章目录名>/`），命名应简洁规范，避免路径敏感字符。
+- **目录与路由命名**：当前站点已通过 `blog/config/permalink.yaml` 开启全局自定义 permalink（`posts/%year%-%monthnum%-%day%/%post_id%/%postname%`，生成 `/posts/<YYYY-MM-DD>/<序号>/<目录名>/`）；文章目录名直接进入最终 URL，命名应简洁规范、避免路径敏感字符，且避免随意回溯插入早年文章以免引起后续 `%post_id%` 偏移（启用全局 permalink 时单篇 `alias` 不会覆盖主链接，如需单篇覆写应使用 `permalink`）。
 
 ## 3. Frontmatter、安全与配图约束
 

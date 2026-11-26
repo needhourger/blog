@@ -1,0 +1,3 @@
+# permalink.yaml —— 覆盖主题的 src/config/permalinkConfig.ts
+enable: true
+format: "posts/%year%-%monthnum%-%day%/%post_id%/%postname%"
