@@ -5,14 +5,14 @@ name: Ciel Chan
 bio: I am a wandering soul, lost in the vastness of the memorial sea.
 links:
   - name: X
-    icon: fa6-brands:x-twitter
+    icon: fa7-brands:x-twitter
     url: https://x.com/yukiricc
   - name: GitHub
-    icon: fa6-brands:github
+    icon: fa7-brands:github
     url: https://github.com/needhourger
   - name: Instagram
-    icon: fa6-brands:instagram
+    icon: fa7-brands:instagram
     url: https://www.instagram.com/yuukiricc
   - name: Email
-    icon: fa6-solid:envelope
+    icon: fa7-solid:envelope
     url: mailto:chainyuuki@gmail.com
